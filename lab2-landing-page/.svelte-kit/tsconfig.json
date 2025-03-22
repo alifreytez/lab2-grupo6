@@ -1,6 +1,36 @@
 {
 	"compilerOptions": {
 		"paths": {
+			"@page-fragments": [
+				"../src/lib/page-fragments"
+			],
+			"@page-fragments/*": [
+				"../src/lib/page-fragments/*"
+			],
+			"@components": [
+				"../src/lib/components"
+			],
+			"@components/*": [
+				"../src/lib/components/*"
+			],
+			"@utils": [
+				"../src/lib/utils"
+			],
+			"@utils/*": [
+				"../src/lib/utils/*"
+			],
+			"@stores": [
+				"../src/lib/stores"
+			],
+			"@stores/*": [
+				"../src/lib/stores/*"
+			],
+			"@styles": [
+				"../src/lib/styles"
+			],
+			"@styles/*": [
+				"../src/lib/styles/*"
+			],
 			"$lib": [
 				"../src/lib"
 			],

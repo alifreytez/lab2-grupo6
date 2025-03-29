@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap');
+
+/* Configuración global */
+:root {
+  --primary-color: #085f63;
+  --secondary-color: #49beb7;
+  --accent-color: #49beb7;
+  --background-color: #FFFFFF;
+  --font-primary: 'Montserrat Alternates', sans-serif;
+}
+
+/* Estilos globales */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color); /* Fondo blanco */
+  font-family: var(--font-primary); /* Fuente global */
+  min-height: 100vh; /* Se asegura que cubra toda la pantalla */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 10px; /* Ajusta el espaciado del body en pantallas pequeñas */
+  }
+
+  .contenedor {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+}

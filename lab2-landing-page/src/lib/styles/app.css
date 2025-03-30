@@ -1,36 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&display=swap');
+@import './fonts.css';
 
-/* Configuración global */
 :root {
-  --primary-color: #085f63;
-  --secondary-color: #49beb7;
-  --accent-color: #49beb7;
-  --background-color: #FFFFFF;
-  --font-primary: 'Montserrat Alternates', sans-serif;
+
+    /* Por ajustar */
+    --accent-color: #49beb7;
+    --background-color: #FFFFFF;
+    --font-primary: 'Montserrat Alternates', sans-serif;
+    
+    
+    /* Font styles */
+    --font-family-primary: 'Montserrat', sans-serif;
+    --font-size-base: 16px;
+    --font-size-small: .8rem;
+    --font-size-big: 1.5rem;
+    --font-size-h1: 2.7rem;
+    
+    /* Colors */
+    --primary-color: rgba(8, 95, 99, 1);
+    --secondary-color: rgba(73, 190, 183, 1);
+    --wrong-color: rgba(255, 0, 0, 1);
+    --well-color: rgba(0, 143, 57, 1);
+    --white-color: rgb(255, 255, 255, 1);
+    --black-color: rgba(0, 0, 0, 1);
+    --text-color: rgba(118, 122, 125, 1);
+
+    /* Background Colors */
+    --bg-white-color: rgba(255, 255, 255, 1);
+    --bg-gray-color: rgba(244, 245, 247, 1);
+
+    /* Border Colors */
+    --border-gray-color: rgba(138, 142, 145, .4);
+    --bordershadow-c: 0 0 #000;
+
+    /* Sizes */
+    --border-radius: 10px;
+    --header-height: 80px;
+    --content-padding: 20px;
 }
 
-/* Estilos globales */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--background-color); /* Fondo blanco */
-  font-family: var(--font-primary); /* Fuente global */
-  min-height: 100vh; /* Se asegura que cubra toda la pantalla */
+* {
+    box-sizing: border-box !important;
+    margin: 0;
+    margin-block: 0;
+    min-width: 0;
+    padding: 0;
+    padding-inline: 0;
+    position: relative;
+    transition: all .2s ease;
 }
+
+html, body {
+    height: 100%;
+    line-height: 1.5;
+    width: 100%;
+}
+
+html, button, textarea, input, label {
+    color: var(--text-color);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+}
+
+body {
+    background-color: var(--background-color);
+    min-height: 100dvh;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--font-color-title);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+img {
+    display: block;
+}
+
+.general-margin {
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 100%;
+}
+
+.primary-btn {
+
+    &:hover {
+    }
+}
+
+.secondary-btn {
+
+    &:hover {
+    }
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
-  body {
-    padding: 10px; /* Ajusta el espaciado del body en pantallas pequeñas */
-  }
+    body {
+        padding: 10px; /* Ajusta el espaciado del body en pantallas pequeñas */
+    }
 
-  .contenedor {
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: var(--background-color);
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
+    .contenedor {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: var(--background-color);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 }

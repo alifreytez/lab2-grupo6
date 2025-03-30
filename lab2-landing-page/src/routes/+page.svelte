@@ -1,6 +1,6 @@
 <script>
     import '../lib/styles/app.css';
-    import BienvenidoHome from "../lib/components/home/BienvenidoHome.svelte";
+    import BienvenidoHome from "./fragments/BienvenidoHome.svelte";
     import Contactos from "../lib/components/Contactos.svelte"
    
 	

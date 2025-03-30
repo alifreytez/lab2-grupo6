@@ -1,11 +1,11 @@
 <script>
     import '../../lib/styles/app.css';
     
-    import BarraSomos from "../../lib/components/somos/BarraSomos.svelte";
-	import IntroSomos from "../../lib/components/somos/IntroSomos.svelte";
-    import MisionSomos from "../../lib/components/somos/MisionSomos.svelte";
-    import VisionSomos from "../../lib/components/somos/VisionSomos.svelte";
-    import ObjetivosSomos from "../../lib/components/somos/ObjetivosSomos.svelte";
+    import BarraSomos from "./fragments/BarraSomos.svelte";
+	import IntroSomos from "./fragments/IntroSomos.svelte";
+    import MisionSomos from "./fragments/MisionSomos.svelte";
+    import VisionSomos from "./fragments/VisionSomos.svelte";
+    import ObjetivosSomos from "./fragments/ObjetivosSomos.svelte";
     import Contactos from "../../lib/components/Contactos.svelte"
 
 </script>

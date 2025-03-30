@@ -4,6 +4,24 @@ const routes = {
         type: 'navbar',
         path: '/',
     },
+    about: {
+        desc: 'Somos',
+        type: 'navbar',
+        group: [
+            {
+                desc: 'Misión',
+                path: '/somos#mision',
+            },
+            {
+                desc: 'Visión',
+                path: '/somos#vision',
+            },
+            {
+                desc: 'Objetivos',
+                path: '/somos#objetivos',
+            },
+        ],
+    },
 }
 
 export const load = async ({ params, locals, fetch, setTitle }) => {

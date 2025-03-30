@@ -1,6 +1,13 @@
 @import './fonts.css';
 
 :root {
+
+    /* Por ajustar */
+    --accent-color: #49beb7;
+    --background-color: #FFFFFF;
+    --font-primary: 'Montserrat Alternates', sans-serif;
+    
+    
     /* Font styles */
     --font-color-text: rgba(118, 122, 125, 1);
     --font-family-primary: 'Montserrat', sans-serif;
@@ -13,7 +20,7 @@
     --secondary-color: rgba(73, 190, 183, 1);
     --wrong-color: rgba(255, 0, 0, 1);
     --well-color: rgba(0, 143, 57, 1);
-    --white-color: rgba(255, 255, 255, 1);
+    --white-color: rgb(131, 78, 78);
 
     /* Background Colors */
     --bg-white-color: rgba(255, 255, 255, 1);
@@ -54,7 +61,8 @@ html, button, textarea, input, label {
 }
 
 body {
-    background-color: var(--bg-gray-color);
+    background-color: var(--background-color);
+    min-height: 100dvh;
     overflow-x: hidden;
 }
 
@@ -87,5 +95,22 @@ img {
 .secondary-btn {
 
     &:hover {
+    }
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Ajusta el espaciado del body en pantallas pequeñas */
+    }
+
+    .contenedor {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: var(--background-color);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 }

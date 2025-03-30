@@ -8,7 +8,6 @@ const config = {
 		}),
 		// Own directories path aliases
 		alias: {
-			'@page-fragments': './src/lib/page-fragments',
 			'@components': './src/lib/components',
 			'@utils': './src/lib/utils',
 			'@stores': './src/lib/stores',

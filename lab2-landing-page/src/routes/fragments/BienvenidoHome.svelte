@@ -1,14 +1,9 @@
-<script>
-  export let titulo = "BIENVENIDO";
-  export let subtitulo = "Construyendo tu Futuro";
-</script>
-
 <div class="contenedor-bienvenido">
   <div class="barra-superior"></div>
   <div class="contenido">
     <img src="/images/image-planta.webp" alt="Crecimiento financiero simbolizado por una planta en monedas" class="imagen" />
     <div class="texto">
-      <h1 class="titulo">{titulo}</h1>
+      <h1 class="titulo">BIENVENIDO</h1>
       <h2 class="subtitulo">
         Construyendo tu <span class="futuro">Futuro</span>
       </h2>
@@ -20,6 +15,7 @@
 <style>
   /* Contenedor principal */
   .contenedor-bienvenido {
+    font-family: 'Montserrat', sans-serif; /* Usa la fuente con prioridad */
     position: relative;
     width: 100%;
     height: auto; /* Ajusta dinámicamente según el contenido */
@@ -111,8 +107,4 @@
     }
   }
 </style>
-
-
-
-
 

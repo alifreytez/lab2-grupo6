@@ -2,8 +2,8 @@
     import '../lib/styles/app.css';
     import BienvenidoHome from "./fragments/BienvenidoHome.svelte";
     import PromoHome from "./fragments/PromoHome.svelte";
-    import Servicio1 from "./fragments/Servicio1.svelte";
-    import Servicio2 from "./fragments/Servicio2.svelte";
+    import Servicios from "./fragments/Servicios.svelte";
+    import PromoFin from "./fragments/PromoFin.svelte";
     import Contactos from "../lib/components/Contactos.svelte"
 
     let { data } = $props();
@@ -13,10 +13,10 @@
     <title>{data.title}</title>
 </svelte:head>
 
-<h1>Bienvenido a la página de inicio AQUI VA CABECERA </h1>
+
 
 <BienvenidoHome />
 <PromoHome />
-<Servicio1 />
-<Servicio2 />
+<Servicios />
+<PromoFin />
 <Contactos />

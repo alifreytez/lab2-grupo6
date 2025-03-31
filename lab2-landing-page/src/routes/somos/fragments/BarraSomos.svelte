@@ -1,8 +1,7 @@
-<h1>CLONE aqui va cabecera</h1> 
 
 <div class="rectangulo">
   <span class="texto">Somos BU</span>
-  <a href="/otro-componente" class="icono-cerrar">
+  <a href="/" class="icono-cerrar">
     <img 
       src="/images/iconos/icono-cerrar.webp"  
       alt="icono-cerrar" 

@@ -1,11 +1,6 @@
 const routes = {
-    home: {
-        desc: 'Inicio',
-        type: 'navbar',
-        path: '/',
-    },
     about: {
-        desc: 'Somos',
+        desc: 'Somos BU',
         type: 'navbar',
         group: [
             {
@@ -22,6 +17,20 @@ const routes = {
             },
         ],
     },
+    foryou: {
+        desc: 'Para ti',
+        type: 'navbar',
+        group: [
+            {
+                desc: 'Servicos',
+                path: '/',
+            },
+            {
+                desc: 'Contacto',
+                path: '/'
+            }
+        ],
+    }
 }
 
 export const load = async ({ params, locals, fetch, setTitle }) => {

@@ -103,10 +103,6 @@ img {
 
 /* Responsive */
 @media (max-width: 768px) {
-    body {
-        padding: 10px; /* Ajusta el espaciado del body en pantallas pequeñas */
-    }
-
     .contenedor {
         padding: 20px;
         max-width: 1200px;

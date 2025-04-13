@@ -87,7 +87,7 @@
 					{/each}
 				</ul>
 			</nav>
-			<a href="#">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>
+			<a href="/bank-app">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>
 		</div>
 		<div class="navbtn-container">
 			<a href="#">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>

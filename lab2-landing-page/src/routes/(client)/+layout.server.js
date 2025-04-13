@@ -23,7 +23,7 @@ const routes = {
         group: [
             {
                 desc: 'Servicos',
-                path: '/',
+                path: '/services',
             },
             {
                 desc: 'Contacto',

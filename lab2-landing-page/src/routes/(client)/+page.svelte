@@ -1,10 +1,17 @@
+<!-- 
+  Página: Principal Home
+  Descripción:
+  Esta página está diseñada para ser la página principal del sitio web del Banco Universitario, sirviendo como la primera impresión para los usuarios y brindándoles una visión general de lo que el banco tiene para ofrecer.
+  Como página principal organiza y presenta los elementos clave del Banco Universitario para ofrecer una experiencia de usuario fluida e intuitiva. Cada componente se combina para brindar información relevante, destacando los beneficios y servicios que el banco ofrece a los estudiantes.
+-->
+
 <script>
-    import '@styles/app.css';
     import BienvenidoHome from "./fragments/BienvenidoHome.svelte";
     import PromoHome from "./fragments/PromoHome.svelte";
-    import Servicio1 from "./fragments/Servicio1.svelte";
-    import Servicio2 from "./fragments/Servicio2.svelte";
-    import Contactos from "@components/Contactos.svelte"
+    import CarruselPromocional from './fragments/CarruselPromocional.svelte';
+    import Servicios from "./fragments/Servicios.svelte";
+    import PromoFin from "./fragments/PromoFin.svelte";
+    import Contactos from "@components/Contactos.svelte";
 
     let { data } = $props();
 </script>
@@ -13,10 +20,10 @@
     <title>{data.title}</title>
 </svelte:head>
 
-<h1>Bienvenido a la página de inicio AQUI VA CABECERA </h1>
-
+<!-- Componentes principales de la página -->
 <BienvenidoHome />
 <PromoHome />
-<Servicio1 />
-<Servicio2 />
+<CarruselPromocional />
+<Servicios />
+<PromoFin />
 <Contactos />

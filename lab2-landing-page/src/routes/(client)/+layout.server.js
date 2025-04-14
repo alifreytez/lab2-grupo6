@@ -2,7 +2,8 @@ const routes = {
     about: {
         desc: 'Somos BU',
         type: 'navbar',
-        group: [
+        path: '/somos',
+        /*group: [
             {
                 desc: 'Misión',
                 path: '/somos#mision',
@@ -15,19 +16,19 @@ const routes = {
                 desc: 'Objetivos',
                 path: '/somos#objetivos',
             },
-        ],
+        ],*/
     },
     foryou: {
         desc: 'Para ti',
         type: 'navbar',
         group: [
             {
-                desc: 'Servicos',
-                path: '/services',
+                desc: 'Servicios',
+                path: '/servicios',
             },
             {
                 desc: 'Contacto',
-                path: '/'
+                path: '/contacto'
             }
         ],
     }

@@ -74,7 +74,7 @@
 										<ul transition:slide>
 											{#each group as { desc: _desc, path: _path }}
 												<li>
-													<a href={_path} onclick={() => $navbar = false}><span>{_desc}</span></a>
+													<a href={_path} onclick={() => submenus.desktop[name] = false}><span>{_desc}</span></a>
 												</li>
 											{/each}								
 										</ul>
@@ -90,7 +90,7 @@
 			<a href="/bank-app">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>
 		</div>
 		<div class="navbtn-container">
-			<a href="#">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>
+			<a href="/bank-app">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>
 			<button type="button" class="btn-nav" class:active={$navbar} onclick={() => $navbar = !$navbar}>
 				<div class="bar-one"></div>
 				<div class="bar-two"></div>
@@ -125,7 +125,10 @@
 								<ul transition:slide>
 									{#each group as { desc: _desc, path: _path }}
 										<li>
-											<a href={_path} onclick={() => $navbar = false}><span>{_desc}</span></a>
+											<a href={_path} onclick={() => {
+												submenus.mobile[name] = false;
+												$navbar = false;
+											}}><span>{_desc}</span></a>
 										</li>
 									{/each}								
 								</ul>

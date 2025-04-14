@@ -13,7 +13,7 @@
     import PromoFin from "./fragments/PromoFin.svelte";
     import Contactos from "@components/Contactos.svelte";
 
-    let { data } = $props();
+    export let data;
 </script>
 
 <svelte:head>

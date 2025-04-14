@@ -1,3 +1,11 @@
+<script>
+    export let data;
+</script>
+
+<svelte:head>
+    <title>{data.title}</title>
+</svelte:head>
+
 <div class="container">
     <div class="content">
         <img class="logo" src="/images/logo.png" alt="logo">

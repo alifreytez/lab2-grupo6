@@ -14,9 +14,14 @@
     import VisionSomos from "./fragments/VisionSomos.svelte";
     import ObjetivosSomos from "./fragments/ObjetivosSomos.svelte";
     import Contactos from "@components/Contactos.svelte"
+
+    export let data;
 </script>
 
-<slot /> 
+<svelte:head>
+    <title>{data.title}</title>
+</svelte:head>
+
 <!-- Componentes-->
 <BarraSomos />
 <IntroSomos />

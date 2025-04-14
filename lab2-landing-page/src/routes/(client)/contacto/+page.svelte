@@ -10,7 +10,12 @@ Descripción:  Esta página está diseñada para mostrar dos componentes princip
     import BarraContactos from "./fragments/BarraContactos.svelte";
     import Contactos from "@components/Contactos.svelte"
 
+    export let data;
 </script>
+
+<svelte:head>
+    <title>{data.title}</title>
+</svelte:head>
 
 <slot /> 
 <!-- Componente que muestra Título de la pagina y el icono d cerrar-->

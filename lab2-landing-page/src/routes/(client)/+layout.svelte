@@ -4,23 +4,27 @@
     import '@styles/app.css';
     import { navbar } from '@stores/navbar.js';
 	import Header from './fragments/Header.svelte';
+	import Footer from './fragments/Footer.svelte';
+	import { onMount } from 'svelte';
     
-    let { data: pageData } = $props();
-	
-	$effect(() => document.body.style.overflow = $navbar ? 'hidden' : 'visible');
+    export let data;
+
+    onMount(() => {
+        document.body.style.overflow = $navbar ? 'hidden' : 'visible'
+    });
 </script>
 
 <svelte:head>
-    <meta name="description" content="{pageData.web_description}">
-    <meta name="keywords" content="{pageData.web_keywords}">
-    <meta name="author" content="{pageData.web_author}">
+    <meta name="description" content="{data.web_description}">
+    <meta name="keywords" content="{data.web_keywords}">
+    <meta name="author" content="{data.web_author}">
 </svelte:head>
 
-<Header routes={pageData.routes} />
+<Header routes={data.routes} />
 <main>
     <slot />
 </main>
-<footer></footer>
+<Footer />
 
 <style>
     main {

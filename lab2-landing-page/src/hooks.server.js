@@ -14,7 +14,6 @@ export const handle = async ({ event, resolve }) => {
 	event.setTitle = (title) => (`${TITLE_BASE} | ${title == null || title == ""
 		? ""
 		: title.split(' ').map((word, index) => {
-			console.log(title);
 			const connectors = [
 				'a', 'ante', 'bajo', 'cabe', 'con', 'contra', 'de', 'desde', 'durante', 'en', 'entre', 'hacia', 'hasta', 'mediante', 'para', 'por', 'según', 'sin', 'so', 'sobre', 'tras', 'versus', 'vía',
 			];

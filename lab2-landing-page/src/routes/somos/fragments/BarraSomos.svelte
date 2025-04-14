@@ -1,6 +1,15 @@
+<!-- 
+  Componente: Barra Somos
+  Descripción:
+  Este componente muestra un encabezado titulado "Somos BU", acompañado de un ícono de cerrar que permite redirigir al inicio. Está diseñado para destacar una sección del Banco Universitario con un diseño responsivo y limpio.
+
+-->
 
 <div class="rectangulo">
+  <!-- Título principal de la barra -->
   <span class="texto">Somos BU</span>
+  
+  <!-- Ícono de cerrar que redirige al inicio -->
   <a href="/" class="icono-cerrar">
     <img 
       src="/images/iconos/icono-cerrar.webp"  
@@ -10,6 +19,7 @@
 </div>
 
 <style>
+  /* Contenedor principal de la barra */
   .rectangulo {
     display: flex; /* Usa flexbox */
     align-items: center; /* Alinea los elementos verticalmente */
@@ -21,16 +31,20 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     font-family: var(--font-primary); /* Usa fuente global */
     margin-bottom: 0; /* Elimina cualquier margen inferior */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
+  /* Estilo del texto del título */
   .texto {
     font-size: 2vw; /* Tamaño responsive basado en el ancho de la pantalla */
     font-weight: 700; /* Bold */
     color: var(--background-color); /* Usa color global blanco */
     text-align: center; /* Centra el texto horizontalmente */
     width: 100%; /* Asegura que ocupe el ancho completo */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
+  /* Contenedor y estilo del ícono de cerrar */
   .icono-cerrar {
     margin-left: auto; /* Empuja el ícono completamente hacia la derecha */
   }
@@ -56,3 +70,4 @@
     }
   }
 </style>
+

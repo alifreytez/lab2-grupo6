@@ -1,3 +1,10 @@
+<!-- 
+  Componente: Promo Fin
+  Descripción:
+  Este componente muestra una sección promocional visualmente atractiva que combina una imagen representativa y un texto destacado. Está diseñado para captar la atención del usuario y reforzar el mensaje promocional de forma clara y directa.
+
+-->
+
 <div class="promo-component">
   <img src="/images/image-promo-fin.webp" alt="Graduado frente a estructura metálica con billetes enrollados alrededor" class="promo-image" />
   <div class="promo-content">
@@ -11,12 +18,13 @@
     width: 100%;
     text-align: center;
     margin: 20px 0; /* Espaciado alrededor del componente */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Imagen promocional */
   .promo-image {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ancho completo del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
     border-radius: 8px; /* Bordes suaves */
   }
 
@@ -27,6 +35,7 @@
     padding: 50px 0;          /* Espaciado interno mayor para aumentar la altura */
     text-align: center;       /* Centrar el texto */
     border-radius: 0 0 8px 8px; /* Bordes suaves en la parte inferior */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Texto promocional */
@@ -35,6 +44,7 @@
     font-style: italic;      /* Texto en cursiva */
     color: #0E5F76;         /* Color del texto */
     margin: 0;              /* Sin márgenes extra */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Ajustes para pantallas medianas */
@@ -57,3 +67,4 @@
     }
   }
 </style>
+

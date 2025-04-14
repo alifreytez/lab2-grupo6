@@ -1,3 +1,13 @@
+<!-- 
+  Componente: Contactos 
+  Descripción: Este componente muestra la información de contacto y las redes sociales del Banco Universitario.Presenta enlaces interactivos a redes sociales.
+  Redes soportadas:
+  - Facebook
+  - Instagram
+  - X (Twitter)
+
+  También incluye información como teléfono, fax, correo electrónico y dirección.
+--> 
 <script>
     // Lista de redes sociales
     const redesSociales = [
@@ -9,7 +19,8 @@
   
   <div class="contenedor-contactos">
     <h1 class="titulo">Información de contacto</h1>
-  
+
+    <!-- Sección de redes sociales -->
     <div class="redes-sociales">
       <strong>Redes Sociales:</strong>
       <ul>
@@ -22,7 +33,7 @@
         {/each}
       </ul>
     </div>
-  
+  <!-- Detalles de contacto -->
     <div class="info-contacto">
       <p><strong>Teléfono:</strong> +58 212-555-5555</p>
       <p><strong>Fax:</strong> +58 212-555-5556</p>
@@ -42,6 +53,7 @@
       border-radius: 8px; /* Bordes redondeados */
       box-sizing: border-box; /* Incluye padding y border en el ancho total */
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+      font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
     }
   
     .titulo {
@@ -49,6 +61,7 @@
       color: black; /* Color del texto */
       text-align: center; /* Centra el texto */
       margin-bottom: 20px; /* Espacio inferior */
+      font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
     }
   
     /* Redes sociales */
@@ -75,6 +88,7 @@
     .redes-sociales li {
       display: flex; /* Flexbox para centrar los íconos */
       align-items: center; /* Centra verticalmente los íconos */
+      font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
     }
   
     .icono-red {

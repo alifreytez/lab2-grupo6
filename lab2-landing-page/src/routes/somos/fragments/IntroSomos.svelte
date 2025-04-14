@@ -1,3 +1,10 @@
+<!-- 
+  Componente: Intro Somos
+  Descripción:
+  Este componente presenta una introducción sobre el Banco Universitario. Combina texto descriptivo con una imagen destacada para ofrecer una experiencia visual atractiva e informativa.
+
+-->
+
 <div class="contenedor">
   <!-- Sección de texto -->
   <div class="texto">
@@ -25,7 +32,7 @@
     padding: 20px; /* Espaciado interno */
     box-sizing: border-box; /* Incluye padding en el tamaño total */
     background-color: var(--background-color); /* Fondo global */
-    font-family: var(--font-primary); /* Fuente global */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Sección de texto */
@@ -33,12 +40,13 @@
     width: 50%; /* Ocupa la mitad del contenedor */
     text-align: left; /* Alinea el texto a la izquierda */
     margin-left: 5%; /* Incrementa el margen izquierdo para alinearlo con el siguiente componente */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Imagen */
   .imagen {
     width: 50%; /* Ocupa la otra mitad */
-    display: flex;
+    display: flex; /* Flexbox para centrar la imagen */
     justify-content: flex-end; /* Alinea la imagen a la derecha */
   }
 
@@ -55,11 +63,13 @@
     font-weight: 400; /* Normal para "Construyendo" */
     margin: 10px 0; /* Espaciado superior e inferior */
     text-transform: none; /* Asegura que no se transforme el texto a mayúsculas */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Negrita específica */
   .bold {
     font-weight: bold; /* Negrita solo para "Futuro" */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Subtítulo */
@@ -68,6 +78,7 @@
     font-size: 1.8rem; /* Tamaño del subtítulo */
     margin: 8px 0; /* Espaciado superior e inferior */
     font-weight: 600; /* Semi-negrita */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Descripción */
@@ -76,6 +87,7 @@
     font-size: 1rem; /* Tamaño estándar */
     line-height: 1.8; /* Espaciado entre líneas */
     text-align: justify; /* Justifica el texto */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Responsividad: Pantallas medianas */

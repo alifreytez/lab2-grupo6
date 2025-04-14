@@ -1,3 +1,9 @@
+<!-- 
+  Componente: Servicio 1
+  Descripción:
+  Este componente destaca la funcionalidad de transferencias sin comisión entre estudiantes universitarios, mostrando una imagen de fondo y texto informativo. Está diseñado para enfatizar la facilidad y beneficio del servicio de manera visual y textual.
+-->
+
 <div class="servicio1">
   <img src="/images/image-servicio1-2.webp" alt="Transferencia entre estudiantes sin comisión" class="imagen-fondo-servicio1" />
   <div class="contenido-servicio1">
@@ -10,20 +16,21 @@
 
 <style>
   .servicio1 {
-    width: 100%;
-    text-align: center;
-    position: relative;
+    width: 100%; /* Abarca todo el ancho de la pantalla */
+    text-align: center; /* Centra el contenido */
+    position: relative; /* Permite posicionar elementos hijos */
     margin: 30px 0; /* Espaciado entre servicios */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   .imagen-fondo-servicio1 {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Ancho completo del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
     border-radius: 8px; /* Bordes suaves */
   }
 
   .contenido-servicio1 {
-    position: absolute;
+    position: absolute; /* Posiciona el contenido sobre la imagen */
     top: 35%; /* Posición inicial estándar */
     left: 5%; /* Margen izquierdo estándar */
     transform: translateY(-50%); /* Centrado verticalmente */
@@ -35,14 +42,16 @@
     word-wrap: break-word; /* Ajusta palabras largas */
     z-index: 1; /* Prioridad sobre la imagen */
     margin: 0; /* Espaciado entre servicios */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   .titulo-servicio1 {
     font-size: 1.3rem; /* Tamaño del título */
     color: #ffffff; /* Texto blanco */
-    font-weight: bold;
+    font-weight: bold; /* Texto en negritas */
     margin-bottom: 15px; /* Espaciado entre el título y descripción */
     line-height: 1.5; /* Interlineado */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   .descripcion-servicio1 {
@@ -51,6 +60,7 @@
     margin-top: 15px; /* Espaciado entre el título y descripción */
     line-height: 1.2; /* Interlineado */
     white-space: normal; /* Permite texto en varias líneas */
+    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
   }
 
   /* Ajustes para pantallas medianas */
@@ -100,16 +110,3 @@
     }
   }
 </style>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  

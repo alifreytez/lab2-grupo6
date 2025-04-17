@@ -1,3 +1,9 @@
+<!-- 
+  Componente: ServicioP1
+  Descripción:
+  Este componente destaca la funcionalidad de transferencias sin comisión entre estudiantes universitarios, mostrando una imagen y texto informativo. Está diseñado para enfatizar la facilidad y beneficio del servicio de manera visual y textual.
+-->
+
 <script>
   export let titulo = "Transferencias entre estudiantes sin comisión";
   export let descripcion = "El Banco Universitario ofrece un servicio de transferencias entre estudiantes sin costo alguno, con el objetivo de facilitar el intercambio de dinero entre los estudiantes universitarios. Este servicio permite transferir dinero de manera rápida, segura y eficiente, lo que permite a los estudiantes contar con una alternativa más para realizar sus pagos y transacciones.";

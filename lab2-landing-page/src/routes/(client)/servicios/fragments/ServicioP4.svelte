@@ -1,3 +1,10 @@
+<!-- 
+  Componente: Servicio 4
+  Descripción:
+  Este componente está diseñado para resaltar el servicio de pago de matrícula estudiantil, mostrando una imagen visualmente atractiva y texto informativo. Destaca la accesibilidad y simplicidad del proceso de pago, disponible en todo momento para estudiantes.
+
+-->
+
 <script>
     export let titulo = "Pago de matrícula universitaria";
     export let descripcion = "El Banco Universitario también ofrece un servicio de pago de matrícula estudiantil, que permite a los estudiantes universitarios pagar sus matrículas de manera rápida y sencilla. Este servicio se realiza en línea y está disponible las 24 horas del día, lo que permite a los estudiantes realizar sus pagos en cualquier momento que lo necesiten.";

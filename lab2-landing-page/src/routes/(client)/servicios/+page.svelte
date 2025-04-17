@@ -1,3 +1,10 @@
+<!-- 
+  Página: Servicios
+  Descripción:
+  Esta página está diseñada para ser la página de servicios del sitio web del Banco Universitario, 
+  aqui se muestra todos los servicios que ofrece el Banco 
+-->
+
 <script>
   import ServicioP1 from './fragments/ServicioP1.svelte';
   import ServicioP2 from './fragments/ServicioP2.svelte';
@@ -15,6 +22,13 @@
 
 <div class="header-container">
 <h1>Servicios que Ofrecemos</h1>
+  <!-- Ícono de cerrar que redirige al inicio -->
+  <a href="/" class="icono-cerrar">
+    <img 
+      src="/images/iconos/icono-cerrar.webp"  
+      alt="icono-cerrar" 
+    />
+  </a>
 <h2>Podrás disfrutar al máximo</h2>
 </div>
 
@@ -43,6 +57,24 @@
   color: white;
   padding: 10px;
 }
+
+  /* Contenedor y estilo del ícono de cerrar */
+  .icono-cerrar {
+    position: absolute; /* Asegura que el elemento esté posicionado de manera personalizada */
+  top: 10px; /* Ajusta la distancia desde el borde superior */
+  right: 10px; /* Mueve el ícono hacia la derecha */
+  }
+
+  .icono-cerrar img {
+    width: 32px; /* Tamaño de la imagen */
+    height: 32px; /* Tamaño de la imagen */
+    cursor: pointer; /* Cursor cambia al pasar por encima */
+  }
+
+  .icono-cerrar img:hover { /* Efecto de hover */
+    filter: brightness(0.8); /* Oscurece la imagen al pasar el mouse */
+    transform: scale(1.1); /* Efecto de hover */
+  }
 
 /* Media Query para dispositivos más pequeños (Tablets y Móviles) */
 @media (max-width: 768px) {

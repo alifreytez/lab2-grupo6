@@ -1,3 +1,10 @@
+<!-- 
+  Componente: Servicio 5
+  Descripción:
+  Este componente resalta el servicio de cobro de becas estudiantiles, combinando elementos visuales y textuales. Diseñado para transmitir de manera clara cómo los estudiantes pueden recibir sus becas a través del Banco Universitario.
+
+-->
+
 <script>
     export let titulo = "Cobro de becas estudiantiles";
     export let descripcion = "El Banco Universitario también permite a los estudiantes universitarios cobrar sus becas estudiantiles de manera sencilla y eficiente. Este servicio está disponible en cualquiera de las sucursales del banco, lo que permite a los estudiantes acceder a sus fondos de manera rápida y segura.";

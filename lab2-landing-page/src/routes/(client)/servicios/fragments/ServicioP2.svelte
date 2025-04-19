@@ -1,3 +1,10 @@
+<!-- 
+  Componente: ServicioP2
+  Descripción:
+  Este componente destaca el servicio de depósitos en efectivo disponibles las 24 horas del día, mostrando una imagen de fondo y un texto informativo. Está diseñado para enfatizar la conveniencia y accesibilidad de este servicio, dirigido a estudiantes y clientes del Banco Universitario.
+
+-->
+
 <script>
     export let titulo = "Depósitos en efectivo";
     export let descripcion = "El Banco Universitario permite a los estudiantes realizar depósitos en efectivo de manera sencilla y cómoda en cualquiera de sus sucursales. Este servicio está disponible las 24 horas del día, los 7 días de la semana, lo que permite a los estudiantes realizar sus depósitos en cualquier momento que lo necesiten.";

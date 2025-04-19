@@ -1,3 +1,10 @@
+<!-- 
+  Componente: Servicio 6
+  Descripción:
+  Este componente está diseñado para destacar el mensaje de apoyo del Banco Universitario en la construcción de un futuro sólido para los estudiantes. Combina una imagen significativa con texto motivador para transmitir confianza y compromiso.
+
+
+-->
 <script>
     export let titulo = "";
     export let descripcion = "";

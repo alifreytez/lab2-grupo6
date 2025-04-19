@@ -1,3 +1,10 @@
+<!-- 
+  Componente: ServicioP3
+  Descripción:
+  Este componente destaca el servicio de retiros en efectivo, mostrando una imagen de fondo y texto informativo. Está diseñado para enfatizar la rapidez y seguridad de este servicio, dirigido a estudiantes y clientes del Banco Universitario.
+
+-->
+
 <script>
     export let titulo = "Retiros en efectivo";
     export let descripcion = "El Banco Universitario también permite a los estudiantes realizar retiros en efectivo de manera rápida y segura. Los estudiantes pueden realizar retiros en cualquiera de las sucursales del banco, con la tranquilidad de que sus fondos están seguros y protegidos.";

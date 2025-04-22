@@ -21,7 +21,7 @@
 </svelte:head>
 
 <div class="header-container">
-<h1>Servicios que Ofrecemos</h1>
+  <h1>Servicios que Ofrecemos</h1>
   <!-- Ícono de cerrar que redirige al inicio -->
   <a href="/" class="icono-cerrar">
     <img 
@@ -55,7 +55,7 @@
   text-align: center;
   background-color: #0e5f76;
   color: white;
-  padding: 10px;
+  padding: 10px 40px;
 }
 
   /* Contenedor y estilo del ícono de cerrar */

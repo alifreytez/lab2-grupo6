@@ -161,7 +161,9 @@
 			justify-content: space-between;
 
 			& .logo {
-				display: block;
+				display: flex;
+				flex-wrap: wrap;
+				align-content: center;
 
 				img {
 					width: 170px;
@@ -293,14 +295,8 @@
 		& nav.mobile-nav {
 			display: none;
 		}
-	}
-    
-	@media (max-width: 850px) {
-		:root {
-			--header-height: 6rem;
-		}
 
-		header {
+		@media (max-width: 850px) {
 			& .container {
 
 				& .logo {
@@ -532,5 +528,25 @@
 				}
 			}
 		}
+
+		@media (max-width: 500px) {
+			.container {
+				padding-right: 20px !important;
+				padding-left: 20px !important;
+			}
+
+			& nav.mobile-nav {
+				height: calc(100dvh - var(--header-height));
+				left: -100%;
+				width: 100%;
+			}
+		}
+	}
+    
+	@media (max-width: 850px) {
+		:root {
+			--header-height: 6rem;
+		}
+
 	}
 </style>

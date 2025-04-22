@@ -1,0 +1,8 @@
+/*   Poppins Font   */
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat Alternates Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+}

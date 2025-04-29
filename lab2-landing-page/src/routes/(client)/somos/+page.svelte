@@ -13,6 +13,7 @@
     import MisionSomos from "./fragments/MisionSomos.svelte";
     import VisionSomos from "./fragments/VisionSomos.svelte";
     import ObjetivosSomos from "./fragments/ObjetivosSomos.svelte";
+    import PromoSomos from "./fragments/PromoSomos.svelte";
     import Contactos from "@components/Contactos.svelte"
 
     export let data;
@@ -28,6 +29,7 @@
 <MisionSomos />
 <VisionSomos />
 <ObjetivosSomos />
+<PromoSomos />
 <Contactos />
 
 

@@ -5,9 +5,12 @@
 -->
 
 <div class="contenedor-vision">
-  <!-- Título principal de la visión -->
-  <h1 class="titulo-vision">Visión:</h1>
-  
+  <!-- Contenedor de imagen y título -->
+  <div class="titulo-vision-container">
+    <img src="/images/image-vision.webp" alt="Icono de visión" class="imagen-vision">
+    <h1 class="titulo-vision">Visión:</h1>
+  </div>
+
   <!-- Descripción de la visión -->
   <p class="descripcion-vision">
     Queremos ser la principal opción financiera para estudiantes universitarios en el país. Deseamos ser reconocidos por nuestros servicios innovadores, la calidad de atención al cliente y nuestro compromiso con la educación y el desarrollo social.
@@ -15,57 +18,83 @@
 </div>
 
 <style>
-/* Contenedor principal */
-.contenedor-vision {
-  width: 100%; /* Ancho consistente con el resto de la página */
-  min-height: 40vh; /* Altura mínima */
-  margin: 0 auto; /* Centra el contenedor horizontalmente */
-  padding: 0 5%; /* Espaciado interno a la izquierda y derecha para alineación */
-  background-color: var(--background-color); /* Fondo global */
-  font-family: var(--font-primary); /* Fuente global */
-  display: flex; /* Utiliza flexbox para centrar el contenido */
-  flex-direction: column; /* Distribución vertical */
-  box-sizing: border-box; /* Evita desbordamientos */
-  font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
+  /* Contenedor principal */
+  .contenedor-vision {
+    width: 100%;
+    min-height: 40vh;
+    margin: 0 auto;
+    padding: 0 5%;
+    background-color: var(--background-color);
+    font-family: var(--font-family-primary);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
 
-/* Título */
-.titulo-vision {
-  color: var(--primary-color);
-  font-size: 2.5rem; /* Tamaño consistente */
-  font-weight: 700; /* Bold */
-  margin: 10px 0; /* Espaciado superior e inferior */
-  text-align: left; /* Alinea el texto a la izquierda */
-  padding: 0; /* Elimina espaciado adicional */
-  font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
+  /* Contenedor del título y la imagen */
+  .titulo-vision-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+  }
 
-/* Descripción */
-.descripcion-vision {
-  color: #333; /* Color del texto */
-  font-size: 1rem; /* Tamaño estándar */
-  line-height: 1.8; /* Mejora la legibilidad */
-  text-align: justify; /* Alineación justificada */
-  max-width: 100%; /* Ancho completo dentro del contenedor */
-  margin: 10px 0; /* Espaciado superior e inferior */
-  padding: 0; /* Elimina espaciado adicional */
-  font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
+  /* Imagen alineada con la palabra "Visión" */
+  .imagen-vision {
+    width: 90px; /* Tamaño ajustado para desktop */
+    height: auto;
+    max-width: 100%;
+  }
 
-/* Responsividad */
-@media (max-width: 768px) {
-.contenedor-vision {
-    padding: 15px; /* Reduce el espaciado interno en móviles */
-}
-.titulo-vision {
-    font-size: 2rem; /* Reduce el tamaño del título */
-    margin-left: 5%; /* Mantén alineación en móviles */
-}
-.descripcion-vision {
-    font-size: 0.9rem; /* Reduce el tamaño del texto */
-    max-width: 95%; /* Ajusta el ancho en móviles */
-    padding: 0 5%; /* Ajusta el espaciado */
-}
-}
+  /* Título */
+  .titulo-vision {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
+  }
 
+  /* Descripción alineada con la "V" de Visión */
+  .descripcion-vision {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+    max-width: 100%;
+    margin-left: 115px; /* Asegura alineación con la "V" */
+  }
+
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .titulo-vision-container {
+      justify-content: flex-start;
+    }
+
+    .imagen-vision {
+      width: 80px; /* Reducción de tamaño en tablets */
+    }
+
+    .descripcion-vision {
+      margin-left: 100px; /* Ajuste menor para tablets */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .titulo-vision-container {
+      justify-content: flex-start;
+    }
+
+    .imagen-vision {
+      width: 70px; /* Imagen más pequeña en móviles */
+    }
+
+    .titulo-vision {
+      font-size: 2rem;
+    }
+
+    .descripcion-vision {
+      margin-left: 90px; /* Ajusta la alineación con la "V" en móviles */
+      text-align: left;
+    }
+  }
 </style>

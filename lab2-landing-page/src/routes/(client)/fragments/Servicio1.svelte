@@ -3,7 +3,6 @@
   Descripción:
   Este componente destaca la funcionalidad de transferencias sin comisión entre estudiantes universitarios, mostrando una imagen de fondo y texto informativo. Está diseñado para enfatizar la facilidad y beneficio del servicio de manera visual y textual.
 -->
-
 <div class="servicio1">
   <img src="/images/image-servicio1-2.webp" alt="Transferencia entre estudiantes sin comisión" class="imagen-fondo-servicio1" />
   <div class="contenido-servicio1">
@@ -16,97 +15,96 @@
 
 <style>
   .servicio1 {
-    width: 100%; /* Abarca todo el ancho de la pantalla */
-    text-align: center; /* Centra el contenido */
-    position: relative; /* Permite posicionar elementos hijos */
-    margin: 30px 0; /* Espaciado entre servicios */
-    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin: 30px 0;
+    font-family: var(--font-family-primary);
   }
 
   .imagen-fondo-servicio1 {
-    width: 100%; /* Ancho completo del contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    border-radius: 8px; /* Bordes suaves */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
   }
 
   .contenido-servicio1 {
-    position: absolute; /* Posiciona el contenido sobre la imagen */
-    top: 35%; /* Posición inicial estándar */
-    left: 5%; /* Margen izquierdo estándar */
-    transform: translateY(-50%); /* Centrado verticalmente */
-    background-color: transparent; /* Fondo transparente */
-    text-align: left; /* Texto alineado a la izquierda */
-    padding: 5px; /* Espaciado interno */
-    max-width: 50%; /* Limita el ancho */
-    overflow: hidden; /* Evita desbordamiento del contenido */
-    word-wrap: break-word; /* Ajusta palabras largas */
-    z-index: 1; /* Prioridad sobre la imagen */
-    margin: 0; /* Espaciado entre servicios */
-    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
+    position: absolute;
+    top: 45%; /* Bajé más el cuadro */
+    left: 2%; /* Moví ligeramente a la izquierda */
+    transform: translateY(-50%);
+    background-color: transparent; /* Completamente transparente */
+    padding: 12px;
+    max-width: 50%;
+    overflow: hidden;
+    word-wrap: break-word;
+    z-index: 1;
+    border-radius: 8px;
+    text-align: left;
   }
 
   .titulo-servicio1 {
-    font-size: 1.3rem; /* Tamaño del título */
-    color: #ffffff; /* Texto blanco */
-    font-weight: bold; /* Texto en negritas */
-    margin-bottom: 15px; /* Espaciado entre el título y descripción */
-    line-height: 1.5; /* Interlineado */
-    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
+    font-size: 1.1rem; /* tamaño de la fuente */
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 10px;
   }
 
   .descripcion-servicio1 {
-    font-size: 1.3 rem; /* Tamaño del texto */
-    color: #ffffff; /* Texto blanco */
-    margin-top: 15px; /* Espaciado entre el título y descripción */
-    line-height: 1.2; /* Interlineado */
-    white-space: normal; /* Permite texto en varias líneas */
-    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
+    font-size: 1rem; /* Reducción para evitar desbordamiento */
+    color: #ffffff;
+    margin-top: 10px;
   }
 
-  /* Ajustes para pantallas medianas */
-  @media (max-width: 768px) {
+  /* Ajuste general para tablets */
+  @media (max-width: 900px) {
     .contenido-servicio1 {
-      top: 40%; /* Baja más el cuadro para evitar superposición */
-      left: 1%; /* Ajusta margen izquierdo */
-      max-width: 60%; /* Ancho ajustado */
-      padding: 8px; /* Reduce el padding interno */
-      margin: 0; /* Espaciado entre servicios */
+      top: 50%; /* Bajé más el cuadro en tablets */
+      left: 2%;
+      max-width: 55%;
+      padding: 10px;
+    }
+  }
+
+  /* Ajuste para pantallas medianas */
+  @media (max-width: 1024px) {
+    .contenido-servicio1 {
+      top: 53%; /* Bajé más en tablets medianas */
+      left: 2%;
+      max-width: 55%;
+      padding: 8px;
     }
 
     .titulo-servicio1 {
-      font-size: 0.9rem; /* Tamaño del título ajustado */
-      margin-bottom: 12px; /* Espaciado ajustado */
-      line-height: 1.4; /* Interlineado */
+      font-size: 1.5rem;
+      margin-bottom: 8px;
     }
 
     .descripcion-servicio1 {
-      font-size: 0.8rem; /* Tamaño del texto ajustado */
-      margin-top: 8px; /* Espaciado ajustado */
-      line-height: 1.3; /* Interlineado ajustado */
+      font-size: 1rem;
+      margin-top: 6px;
     }
   }
 
-  /* Ajustes para pantallas pequeñas */
+  /* Ajuste para móviles */
   @media (max-width: 480px) {
     .contenido-servicio1 {
-      top: 50%; /* Baja el cuadro */
-      left: 1%; /* Ajusta margen izquierdo */
-      max-width: 100%; /* Incrementa el ancho en pequeñas pantallas */
-      padding: 6px; /* Reduce el padding interno */
-      margin: 0; /* Espaciado entre servicios */
+      top: 50%; /* Bajé más en móviles */
+      left: 2%;
+      max-width: 55%;
+      padding: 6px;
     }
 
     .titulo-servicio1 {
-      font-size: 0.8rem; /* Ajusta el tamaño del título */
-      margin-bottom: 6px; /* Espaciado entre título y descripción */
-      line-height: 1.2; /* Interlineado ajustado */
+      font-size: 0.9rem;
+      margin-bottom: 6px;
     }
 
     .descripcion-servicio1 {
-      font-size: 0.8rem; /* Tamaño del texto reducido */
-      margin-top: 5px; /* Ajusta espaciado */
-      line-height: 1; /* Ajusta interlineado */
-      overflow-wrap: break-word; /* Corta palabras largas para ajustar al ancho */
+      font-size: 0.8rem;
+      margin-top: 5px;
     }
   }
 </style>
+
+

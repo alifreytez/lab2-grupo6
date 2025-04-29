@@ -6,7 +6,7 @@
 
     let { routes } = $props();
 
-    const submenus = $state({ mobile: {}, desktop: {}});
+    const submenus = $state({ mobile: {}, desktop: {} });
 	const iniControlVars = () => {
 		$navbar = false;
 		Object.entries(routes).forEach(([key, value]) => {

@@ -15,44 +15,44 @@
   import Servicio6 from "./Servicio6.svelte";
 </script>
 
-<!-- Barra decorativa con titulo Nuestros Servicios en la parte superior -->
+<!-- Barra decorativa con título "Nuestros Servicios" -->
 <BarraLogo />
 
 <!-- Cuadrícula de servicios -->
 <div class="services-grid">
-<Servicio1 />
-<Servicio2 />
-<Servicio3 />
-<Servicio4 />
-<Servicio5 />
-<Servicio6 />
+  <Servicio1 />
+  <Servicio2 />
+  <Servicio3 />
+  <Servicio4 />
+  <Servicio5 />
+  <Servicio6 />
 </div>
 
-<!-- Rectángulo de fondo debajo de los servicios -->
+<!-- Rectángulo de fondo -->
 <div class="footer-rectangle"></div>
 
 <style>
-.services-grid {
-  display: grid; /* Grid para la cuadrícula */
-  column-gap: 1rem; /* Espacio entre columnas */
-  row-gap: 0.5rem; /* Espacio entre filas */
-  grid-template-columns: 1fr; /* Una columna para móviles */
-  background: #0E5F76; /* Fondo transparente revisen a ver cual se ve mejor transparent */
-  margin: 10px 0; /* Espacio superior e inferior */
-  padding: 0; /* Sin relleno */
-  font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
-
-@media (min-width: 768px) {
   .services-grid {
-    grid-template-columns: 1fr 1fr; /* Dos columnas en desktop */
+    display: grid; /* Activa la cuadrícula */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en desktop */
+    gap: 1rem; /* Espacio entre servicios */
+    background: #0E5F76;
+    margin: 10px 0;
+    padding: 0;
+    font-family: var(--font-family-primary);
   }
-}
 
-/* Estilo para el rectángulo de fondo */
-.footer-rectangle {
-  width: 100%; /* Ancho completo */
-  height: 20px; /* Ajusta la altura */
-  background-color: #0E5F76; /* Color de fondo */
-}
+  /* Ajuste para tablets y móviles: una sola columna */
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: 1fr; /* Una columna en tablets */
+    }
+  }
+
+  /* Rectángulo de fondo */
+  .footer-rectangle {
+    width: 100%;
+    height: 20px;
+    background-color: #0E5F76;
+  }
 </style>

@@ -6,7 +6,7 @@
 -->
 
 <div class="promo-component">
-  <img src="/images/image-promo-fin.webp" alt="Graduado frente a estructura metálica con billetes enrollados alrededor" class="promo-image" />
+  <img src="/images/image-promo-finV2.webp" alt="Graduado frente a estructura metálica con billetes enrollados alrededor" class="promo-image" />
   <div class="promo-content">
     <p class="promo-text">TODO LO QUE NECESITAS EN UN SOLO LUGAR</p>
   </div>

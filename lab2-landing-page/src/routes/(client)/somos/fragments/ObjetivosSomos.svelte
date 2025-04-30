@@ -5,8 +5,11 @@
 -->
 
 <div class="contenedor-objetivos">
-  <!-- Título del componente -->
-  <h1 class="titulo-objetivos">Nuestros Objetivos:</h1>
+  <!-- Contenedor de imagen y título -->
+  <div class="titulo-objetivos-container">
+    <img src="/images/image-objetivos.webp" alt="Icono de objetivos" class="imagen-objetivos">
+    <h1 class="titulo-objetivos">Objetivos:</h1>
+  </div>
 
   <!-- Lista de objetivos -->
   <ul class="lista-objetivos">
@@ -19,60 +22,90 @@
 </div>
 
 <style>
-/* Contenedor principal */
-.contenedor-objetivos {
-    width: 100%; /* Ancho consistente con el resto de la página */
-    min-height: 40vh; /* Altura mínima */
-    margin: 0 auto; /* Centra el contenedor horizontalmente */
-    padding: 0 5%; /* Espaciado interno a la izquierda y derecha para alineación */
-    background-color: var(--background-color); /* Fondo global */
-    font-family: var(--font-primary); /* Fuente global */
-    display: flex; /* Flexbox para alineación */
-    flex-direction: column; /* Distribución vertical */
-    box-sizing: border-box; /* Evita desbordamientos */
-    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
+  /* Contenedor principal */
+  .contenedor-objetivos {
+    width: 100%;
+    min-height: 40vh;
+    margin: 0 auto;
+    padding: 0 5%;
+    background-color: var(--background-color);
+    font-family: var(--font-family-primary);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
 
-/* Título */
-.titulo-objetivos {
-    color: var(--primary-color); /* Color del texto */
-    font-size: 2.5rem; /* Tamaño consistente */
-    font-weight: 700; /* Bold */
-    margin: 10px 0; /* Espaciado superior e inferior */
-    text-align: left; /* Alinea el texto a la izquierda */
-    padding: 0; /* Elimina espaciado adicional */
-    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
+  /* Contenedor del título y la imagen */
+  .titulo-objetivos-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+  }
 
-/* Lista de objetivos */
-.lista-objetivos {
-    list-style-type: disc; /* Puntos para la lista */
-    color: #333; /* Texto gris oscuro */
-    font-size: 1rem; /* Igual a la descripción en misión y visión */
-    line-height: 1.8; /* Espaciado similar */
-    max-width: 100%; /* Igual al ancho de descripción */
-    padding: 0 5%; /* Añade espacio interno para móviles */
-    text-align: justify; /* Alineación consistente */
-    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
+  /* Imagen alineada con la palabra "Objetivos" */
+  .imagen-objetivos {
+    width: 90px; /* Tamaño ajustado para desktop */
+    height: auto;
+    max-width: 100%;
+  }
 
-/* Elementos de la lista */
-.lista-objetivos li {
-    margin-bottom: 15px; /* Espaciado entre objetivos */
-    font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
+  /* Título */
   .titulo-objetivos {
-    font-size: 2rem; /* Mismo tamaño reducido que misión y visión */
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: left;
   }
+
+  /* Lista alineada con la "O" de Objetivos */
   .lista-objetivos {
-    font-size: 0.9rem; /* Ajustado para pantallas pequeñas */
-    padding-left: 15px; /* Reduce el espaciado en móviles */
+    list-style-type: disc;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 100%;
+    padding: 0 5%;
+    text-align: justify;
+    margin-left: 115px; /* Asegura alineación con la "O" */
   }
-}
-.lista-objetivos li {
-    margin-bottom: 10px; /* Espaciado reducido en móviles */
-}
+
+  /* Elementos de la lista */
+  .lista-objetivos li {
+    margin-bottom: 15px;
+  }
+
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .titulo-objetivos-container {
+      justify-content: flex-start;
+    }
+
+    .imagen-objetivos {
+      width: 80px; /* Reducción de tamaño en tablets */
+    }
+
+    .lista-objetivos {
+      margin-left: 100px; /* Ajuste menor para tablets */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .titulo-objetivos-container {
+      justify-content: flex-start;
+    }
+
+    .imagen-objetivos {
+      width: 70px; /* Imagen más pequeña en móviles */
+    }
+
+    .titulo-objetivos {
+      font-size: 2rem;
+    }
+
+    .lista-objetivos {
+      margin-left: 90px; /* Ajusta la alineación con la "O" en móviles */
+      text-align: left;
+    }
+  }
 </style>

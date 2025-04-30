@@ -77,7 +77,7 @@
   }
 
   /* Media query para pantallas medianas */
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     .contenido-servicio5 {
       top: 40%;       /* Sube ligeramente el cuadro para adaptarse */
       max-width: 50%; /* Amplía el cuadro para aprovechar espacio */

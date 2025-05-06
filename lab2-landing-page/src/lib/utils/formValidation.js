@@ -1,4 +1,6 @@
 // src/lib/utils/formValidation.js
+// Este archivo contiene funciones para validar formularios y campos de entrada en JavaScript.
+// Estas funciones son útiles para verificar si los campos están vacíos, si son válidos y si cumplen con ciertas reglas de validación.
 
 export function hasEmptyField(form, fieldsExcluded = []) {
     let binaryAnd = 1;

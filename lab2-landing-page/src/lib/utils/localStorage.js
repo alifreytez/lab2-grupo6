@@ -1,6 +1,5 @@
-//export function getJWT() {
-  //  return localStorage.getItem("bank_jwt")
-//}
+// Este archivo contiene funciones para manejar el almacenamiento local del JWT
+// de autenticación. Estas funciones permiten obtener, establecer y eliminar el JWT
 
 export function getJWT() {
     if (typeof window !== "undefined") {

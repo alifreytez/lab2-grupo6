@@ -87,10 +87,10 @@
 					{/each}
 				</ul>
 			</nav>
-			<a href="/bank-app">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>
+			<a href="/login">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>
 		</div>
 		<div class="navbtn-container">
-			<a href="/bank-app">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>
+			<a href="/login">Banca En Línea<i class="fa-solid fa-angles-right"></i></a>
 			<button type="button" class="btn-nav" class:active={$navbar} onclick={() => $navbar = !$navbar}>
 				<div class="bar-one"></div>
 				<div class="bar-two"></div>

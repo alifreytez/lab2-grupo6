@@ -26,15 +26,28 @@
             return;
         }
 
-        const response = await apiHttp("POST", "/auth/login", { email, password });
+        console.log("Intentando login en API...");
+        console.log("Datos enviados:", { email, password });
+
+        const response = await apiHttp("POST", "/v1/public/client/user/login", { email, password });
+
+        console.log("Respuesta API:", response);
+
         if (response.error) {
             errorMessage = response.message || "Error en el inicio de sesión";
             isLoading.set(false);
             return;
         }
 
-        setJWT(response.token); // Guarda el JWT en localStorage
-        goto("/movements"); // Redirige al usuario
+        // Verificamos que el token se encuentre en response.data.jwt
+        if (response.data && response.data.jwt) {
+            console.log("JWT recibido:", response.data.jwt);
+            setJWT(response.data.jwt); // Guarda el token JWT en el localStorage
+            goto("/movements");
+        } else {
+            errorMessage = "Error: La API no devolvió un token de autenticación.";
+        }
+
         isLoading.set(false);
     }
 </script>
@@ -137,16 +150,5 @@
         text-align: center;
         margin-top: 15px;
         color: #00796b;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-        .auth-form {
-            padding: 20px;
-        }
-
-        .logo {
-            width: 140px; /* Ajuste en móviles */
-        }
     }
 </style>

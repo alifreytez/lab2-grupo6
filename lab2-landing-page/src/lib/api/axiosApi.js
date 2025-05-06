@@ -1,48 +1,52 @@
-// src/lib/api/axiosApi.js
 import axios from "axios";
 import { getJWT } from "$lib/utils/localStorage";
 
-export const API_URL_BACKEND = import.meta.env.PUBLIC_API_URL_BACKEND || "http://localhost:8080";
-const API_TIMEOUT_MS = import.meta.env.PUBLIC_API_TIMEOUT_MS || 10000;
+export const API_URL_BACKEND = import.meta.env.PUBLIC_API_URL_BACKEND || "http://localhost:3000";
+const AXIOS_TIMEOUT_MS = import.meta.env.PUBLIC_API_TIMEOUT_MS || 10000;
 
-// Configuración global de Axios
-const apiClient = axios.create({
-    baseURL: API_URL_BACKEND,
-    timeout: API_TIMEOUT_MS,
-    headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-    },
-});
+const defaultHeaders = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+};
 
-/**
- * Realiza peticiones HTTP a la API del banco
- * @param {string} method - Método HTTP (GET, POST, PUT, DELETE)
- * @param {string} endpoint - URL de la API (sin la base)
- * @param {Object} data - Datos opcionales para la petición
- * @param {Object} params - Parámetros opcionales en la URL
- * @returns {Promise<Object>} - Respuesta JSON de la API
- */
-export const apiHttp = async (method, endpoint, data = null, params = {}) => {
+export const apiHttp = async (method, endpoint, data = null, params = null, options = {}) => {
     let jwt = getJWT();
-    const headers = jwt ? { Authorization: `Bearer ${jwt}` } : {};
+
+    options.headers = {
+        ...defaultHeaders,
+        ...options.headers,
+        ...(jwt ? { Authorization: `Bearer ${jwt}` } : {}),
+    };
+
+    const url = `${API_URL_BACKEND}${endpoint}`;
+    console.log(`Intentando conexión con: ${url}`);
 
     try {
-        const response = await apiClient({
-            method,
-            url: endpoint,
+        const response = await axios({
+            method: method.toLowerCase(),
+            url,
             params,
             data,
-            headers,
+            timeout: AXIOS_TIMEOUT_MS,
+            ...options,
         });
 
         return response.data;
     } catch (error) {
-        console.error("API Request Failed:", error);
+        console.error("Error en la solicitud API:", error);
+
+        if (error.code === "ECONNABORTED") {
+            return { error: true, message: "Tiempo de espera agotado. La API no respondió.", status: 504 };
+        }
+
+        if (!error.response) {
+            return { error: true, message: "No se pudo conectar con el servidor. Verifica la API.", status: 503 };
+        }
+
         return {
             error: true,
-            message: error?.response?.data?.message || "Error desconocido",
-            status: error?.response?.status || 500,
+            message: error.response?.data?.message || error.message || "Error desconocido",
+            status: error.response?.status || 500,
         };
     }
 };

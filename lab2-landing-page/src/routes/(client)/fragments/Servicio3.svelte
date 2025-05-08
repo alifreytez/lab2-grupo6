@@ -16,96 +16,86 @@
 </div>
 
 <style>
-.servicio3 {
-  width: 100%; /* Ancho completo */
-  text-align: center; /* Centrado de texto */
-  position: relative; /* Posicionamiento relativo */
-  margin: 30px 0; /* Espaciado entre servicios */
-  font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
+  .servicio3 {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    margin: 30px 0;
+    font-family: var(--font-family-primary);
+  }
 
-.imagen-fondo-servicio3 {
-  width: 100%; /* Imagen ocupa todo el ancho */
-  height: auto; /* Mantiene la proporción de la imagen */
-  border-radius: 8px; /* Bordes suaves */
-}
+  .imagen-fondo-servicio3 {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
 
-.contenido-servicio3 {
-  position: absolute; /* Posiciona el contenido sobre la imagen */
-  top: 30%; /* Posición inicial estándar */
-  left: 5%; /* Margen izquierdo estándar */
-  transform: translateY(-50%); /* Centrado verticalmente */
-  background-color: transparent; /* Fondo transparente */
-  text-align: left; /* Texto alineado a la izquierda */
-  padding: 10px; /* Espaciado interno */
-  max-width: 40%; /* Limita el ancho */
-  overflow: hidden; /* Evita desbordamiento del contenido */
-  word-wrap: break-word; /* Ajusta palabras largas */
-  z-index: 1; /* Prioridad sobre la imagen */
-  margin: 0; /* Espaciado entre servicios */
-  font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
-
-.titulo-servicio3 {
-  font-size: 1.5rem; /* Tamaño del título */
-  color: #ffffff; /* Texto blanco */
-  font-weight: bold; /* Texto en negritas */
-  margin-bottom: 15px; /* Espaciado entre el título y descripción */
-  line-height: 1.5; /* Interlineado */
-  font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
-
-.descripcion-servicio3 {
-  font-size: 1.2rem; /* Tamaño del texto */
-  color: #ffffff; /* Texto blanco */
-  margin-top: 15px; /* Espaciado entre el título y descripción */
-  line-height: 1.4; /* Interlineado */
-  white-space: normal; /* Permite texto en varias líneas */
-  font-family: var(--font-family-primary); /* Usa la fuente global definida en app.css */
-}
-
-/* Ajustes para pantallas medianas */
-@media (max-width: 768px) {
   .contenido-servicio3 {
-    top: 30%; /* Baja más el cuadro para evitar superposición */
-    left: 3%; /* Ajusta margen izquierdo */
-    max-width: 55%; /* Ancho ajustado */
-    padding: 8px; /* Reduce el padding interno */
+    position: absolute;
+    top: 25%;
+    left: 3%;
+    transform: translateY(-50%);
+    background-color: transparent; /* Ahora completamente transparente */
+    padding: 12px;
+    max-width: 50%;
+    overflow: hidden;
+    word-wrap: break-word;
+    z-index: 1;
+    border-radius: 8px;
+    text-align: left;
   }
 
   .titulo-servicio3 {
-    font-size: 1.5rem; /* Tamaño del título ajustado */
-    margin-bottom: 12px; /* Espaciado ajustado */
-    line-height: 1.4; /* Interlineado */
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 15px;
   }
 
   .descripcion-servicio3 {
-    font-size: 1rem; /* Tamaño del texto ajustado */
-    margin-top: 8px; /* Espaciado ajustado */
-    line-height: 1.3; /* Interlineado ajustado */
-  }
-}
-
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 480px) {
-  .contenido-servicio3 {
-    top: 30%; /* Baja el cuadro */
-    left: 2%; /* Ajusta margen izquierdo */
-    max-width: 80%; /* Incrementa el ancho en pequeñas pantallas */
-    padding: 6px; /* Reduce el padding interno */
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-top: 15px;
   }
 
-  .titulo-servicio3 {
-    font-size: 1rem; /* Ajusta el tamaño del título */
-    margin-bottom: 8px; /* Espaciado entre título y descripción */
-    line-height: 1.2; /* Interlineado ajustado */
+  /* Ajustes para tablets */
+  @media (max-width: 1024px) {
+    .contenido-servicio3 {
+      top: 30%; /* Bajé el cuadro en tablets */
+      left: 2%;
+      max-width: 55%;
+      padding: 10px;
+    }
+    .titulo-servicio3 {
+      font-size: 1.2rem; /* Reducción de tamaño */
+      margin-bottom: 3px;
+    }
+
+    .descripcion-servicio3 {
+      font-size: 1.1rem; /* Reducción de tamaño */
+      margin-top: 3px;
+    }
   }
 
-  .descripcion-servicio3 {
-    font-size: 0.8rem; /* Tamaño del texto reducido */
-    margin-top: 10px; /* Ajusta espaciado */
-    line-height: 1.3; /* Ajusta interlineado */
-    overflow-wrap: break-word; /* Corta palabras largas para ajustar al ancho */
+  
+
+  /* Ajustes para móviles */
+  @media (max-width: 480px) {
+    .contenido-servicio3 {
+      top: 35%; /* Bajé más en móviles */
+      left: 2%;
+      max-width: 55%;
+      padding: 8px;
+    }
+
+    .titulo-servicio3 {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .descripcion-servicio3 {
+      font-size: 0.8rem;
+      margin-top: 8px;
+    }
   }
-}
 </style>

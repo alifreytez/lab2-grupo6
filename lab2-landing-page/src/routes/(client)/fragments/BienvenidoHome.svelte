@@ -67,14 +67,15 @@
     max-width: 40%; /* Limita el ancho del texto */
   }
 
-  /* Títulos */
-  .titulo {
-    font-size: 3rem; /* Tamaño destacado */
-    font-weight: bold; /* Resalta el título letra gruesa*/
-    margin-bottom: 10px; /* Separación entre título y subtítulo */
-    color: var(--secondary-color); /* Azul para el título */
-    font-family: 'Montserrat', sans-serif; /* Usa la fuente con prioridad */
-  }
+  /* Título */
+.titulo {
+  font-size: 3rem; /* Tamaño destacado */
+  font-weight: 900; /* Grosor máximo para resaltar */
+  margin-bottom: 10px; /* Separación entre título y subtítulo */
+  color: var(--primary-color); /* Usa el color principal del proyecto */
+  font-family: var(--font-family-primary); /* Usa la fuente global */
+}
+
 
   .subtitulo {
     font-size: 1.5rem; /* Tamaño moderado */

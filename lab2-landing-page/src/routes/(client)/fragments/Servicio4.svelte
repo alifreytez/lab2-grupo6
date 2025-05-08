@@ -65,7 +65,7 @@
 }
 
 /* Ajustes para pantallas medianas */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .contenido-servicio4 {
     top: 40%; /* Baja más el cuadro para evitar superposición */
     left: 15%; /* Ajusta margen izquierdo */

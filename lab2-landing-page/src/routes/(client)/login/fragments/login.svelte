@@ -50,7 +50,7 @@
         if (response.data && response.data.jwt) {
             console.log("JWT recibido:", response.data.jwt); // Muestra el token JWT recibido en la consola
             setJWT(response.data.jwt); // Guarda el token JWT en el localStorage
-            goto("/movements"); // Redirige al usuario a la página de movimientos
+            goto("/bank"); // Redirige al usuario a la página de bank
         } else {
             errorMessage = "Error: La API no devolvió un token de autenticación."; // Mensaje de error si no se recibió un token JWT
         }

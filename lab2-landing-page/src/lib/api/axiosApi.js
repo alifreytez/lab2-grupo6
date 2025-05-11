@@ -4,7 +4,7 @@
 import axios from "axios"; // Importa la librería Axios para realizar peticiones HTTP
 import { getJWT } from "$lib/utils/localStorage"; // Importa la función para obtener el JWT del almacenamiento local
 
-export const API_URL_BACKEND = import.meta.env.PUBLIC_API_URL_BACKEND || "http://localhost:3000"; // URL base de la API backend
+export const API_URL_BACKEND = import.meta.env.PUBLIC_API_URL_BACKEND || "http://192.168.31.92:3000"; // URL base de la API backend
 const AXIOS_TIMEOUT_MS = import.meta.env.PUBLIC_API_TIMEOUT_MS || 10000; // Tiempo de espera para las peticiones Axios (10 segundos por defecto)
 
 // inicializa los headers por defecto para las peticiones Axios

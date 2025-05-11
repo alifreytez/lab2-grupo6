@@ -6,6 +6,7 @@
     <title>{data.title}</title>
 </svelte:head>
 
+<h1>Movimientos</h1>
 
 
 <style>

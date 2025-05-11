@@ -4,12 +4,11 @@
 
     /* Por ajustar */
     --accent-color: #49beb7;
-    --background-color: #FFFFFF;
-    --font-primary: 'Montserrat', sans-serif;
-    
+    --background-color: #FFFFFF;    
     
     /* Font styles */
-    --font-family-primary: 'Montserrat', sans-serif;
+    --font-family-primary: 'Montserrat Alternates', sans-serif;
+    --font-family-secondary: 'Montserrat', sans-serif;
     --font-size-base: 16px;
     --font-size-small: .8rem;
     --font-size-big: 1.5rem;
@@ -22,11 +21,14 @@
     --well-color: rgba(0, 143, 57, 1);
     --white-color: rgb(255, 255, 255, 1);
     --black-color: rgba(0, 0, 0, 1);
+    --text-black-color: rgba(80, 80, 80, 1);
     --text-color: rgba(118, 122, 125, 1);
 
     /* Background Colors */
     --bg-white-color: rgba(255, 255, 255, 1);
     --bg-gray-color: rgba(244, 245, 247, 1);
+    --bg-gray-color-7: rgba(244, 245, 247, .7);
+    --bg-gray-color-5: rgba(244, 245, 247, .3);
 
     /* Border Colors */
     --border-gray-color: rgba(138, 142, 145, .4);
@@ -58,7 +60,7 @@ html, body {
 
 html, button, textarea, input, label {
     color: var(--text-color);
-    font-family: var(--font-family-primary);
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-base);
     line-height: 1.5;
 }
@@ -71,6 +73,7 @@ body {
 
 h1, h2, h3, h4, h5 {
     color: var(--font-color-title);
+    font-family: var(--font-family-primary);
 }
 
 h1 {

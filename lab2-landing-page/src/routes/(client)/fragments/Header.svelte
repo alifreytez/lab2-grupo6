@@ -2,7 +2,7 @@
 	import { slide } from 'svelte/transition';
 	import { onMount } from 'svelte';
     import { navbar } from '@stores/navbar.js';
-	import clickOutside from '@utils/click-outside';
+	import clickOutside from '@utils/clickOutside';
 
     let { routes } = $props();
 

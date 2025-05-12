@@ -1,7 +1,8 @@
 export const load = async ({ params, locals, fetch, setTitle }) => {
     let response = {
         ...locals,
-        title: setTitle("Inicio"),
+        pageTitle: setTitle("Inicio"),
+        title: "Inicio",
     };
 
     return response;

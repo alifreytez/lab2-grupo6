@@ -27,13 +27,14 @@
     <title>{data.title_base + data.title}</title>
 </svelte:head>
 
-<div class="content-wrapper {!$panelNavbar ? 'navbar-hidden':''}">
+<div class="page-container {!$panelNavbar ? 'navbar-hidden':''}">
     <div class="navbar">
         <Header />
         <Navbar routes={data.routes} />
     </div>
-    <div class="main-content" style:width={windowWidth <= 600 ? '100%' : ($panelNavbar ? 'calc(100% - 270px)' : 'calc(100% - 75px)')}>
-        <slot />
+    <div class="main-container" style:width={windowWidth <= 600 ? '100%' : ($panelNavbar ? 'calc(100% - 270px)' : 'calc(100% - 75px)')}>
+        <slot>
+        </slot>
         <Footer />
     </div>
 </div>
@@ -42,15 +43,17 @@
     :global(body) {
         background-color: var(--bg-gray-color);
     }
-    .content-wrapper {
+    :global(.page-container .main-container .content-container) {
+        padding: 0 var(--section-padding) var(--section-padding) var(--section-padding);
+    }
+    .page-container {
         display: flex;
         flex-wrap: wrap;
         height: 100dvh;
         justify-content: space-between;
         
-        & .main-content {
+        & .main-container {
             position: relative;
-            padding: var(--intermediate-content-padding);
 
             @media (min-width: 601px) {
                 overflow-y: auto;
@@ -69,6 +72,7 @@
     @media (max-width: 600px) {
         :root {
             --header-height: 65px;
+            --section-padding: 20px;
         }
     }
 </style>

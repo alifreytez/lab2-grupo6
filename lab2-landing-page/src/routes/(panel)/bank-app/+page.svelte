@@ -1,12 +1,14 @@
 <script>
+    import PanelHeader from '@components/PanelHeader.svelte';
+
     export let data;
 </script>
 
 <svelte:head>
-    <title>{data.title}</title>
+    <title>{data.pageTitle}</title>
 </svelte:head>
 
-
+<PanelHeader title={data.title} />
 
 <style>
 

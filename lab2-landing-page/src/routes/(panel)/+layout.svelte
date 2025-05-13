@@ -46,6 +46,9 @@
     :global(.page-container .main-container .content-container) {
         padding: 0 var(--section-padding) var(--section-padding) var(--section-padding);
     }
+    :global(html) {
+        font-size: calc(var(--font-size-base) - 2px);
+    }
     .page-container {
         display: flex;
         flex-wrap: wrap;

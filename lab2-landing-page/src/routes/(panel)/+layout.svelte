@@ -12,11 +12,11 @@
     let windowWidth = 0;
 
     onMount(() => {
-        if (window.screen.availWidth <= 600)
-            $panelNavbar = false;
-
         window.addEventListener('resize', () => windowWidth = window.innerWidth);
         windowWidth = window.innerWidth;
+        
+        if (windowWidth <= 600)
+            $panelNavbar = false;
     });
 </script>
 

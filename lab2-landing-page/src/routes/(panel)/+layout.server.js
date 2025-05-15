@@ -23,17 +23,11 @@ const routes = {
         type: 'navbar',
         path: '/bank-app/movimientos',
     },
-    studentScholarships: {
-        iconClass: 'fa-solid fa-user-graduate',
-        desc: 'Becas Estudiantiles',
+    contacts: {
+        iconClass: 'fa-solid fa-address-book',
+        desc: 'Contactos',
         type: 'navbar',
-        path: '/bank-app/becas-estudiantiles',
-    },
-    accountSettings: {
-        iconClass: 'fa-solid fa-gear',
-        desc: 'Ajustes de la Cuenta',
-        type: 'userbar',
-        path: '/bank-app/perfil',
+        path: '/bank-app/contactos',
     },
 }
 

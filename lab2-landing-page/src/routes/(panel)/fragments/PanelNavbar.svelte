@@ -3,8 +3,10 @@
     import { goto } from '$app/navigation';
     import { removeJWT } from '$lib/utils/localStorage';
     import { panelNavbar } from '@stores/panelNavbar.js';
+	import { onMount } from 'svelte';
 
     export let routes;
+    let windowWidth = 0;
 
     const logout = () => {
         removeJWT();
@@ -127,14 +129,14 @@
             }
                     
             &.navbar {
-                height: calc(100% - 142px);
+                height: calc(100% - 72px);
                 overflow-y: auto;
                 width: 100%;
             }
 
             &.userbar {
                 border-top: 2px solid var(--border-gray-color);
-                height: 142px;
+                height: 72px;
             }
         }
 

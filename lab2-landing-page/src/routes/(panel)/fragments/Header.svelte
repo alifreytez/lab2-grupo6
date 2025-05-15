@@ -27,8 +27,8 @@
         display: flex;
         flex-wrap: wrap;
         height: var(--header-height);
-        padding: calc(var(--content-padding) + 5px);
-        width: calc(25px + (var(--content-padding) + 5px) * 2);
+        padding: calc(var(--section-padding));
+        width: calc(25px + (var(--section-padding)) * 2);
 
         & .navbar-toggler {
             background-color: transparent;
@@ -64,7 +64,7 @@
         & .logo {
             display: none;
             height: 23px;
-            margin-left: calc(var(--content-padding) + 5px);
+            margin-left: calc(var(--section-padding));
             opacity: 0;
             width: auto;
         }

@@ -1,8 +1,15 @@
 <script>
 	import { page } from '$app/stores';
+    import { goto } from '$app/navigation';
+    import { removeJWT } from '$lib/utils/localStorage';
     import { panelNavbar } from '@stores/panelNavbar.js';
 
     export let routes;
+
+    const logout = () => {
+        removeJWT();
+        goto('/login');
+    };
 </script>
 
 <nav class:show={$panelNavbar}>
@@ -42,7 +49,9 @@
             {/if}
         {/each}
         <li>
-            <button aria-label="logout"><i class="fa-solid fa-power-off"></i><span>Cerrar sesión</span></button>
+            <button aria-label="logout" onclick={logout}>
+                <i class="fa-solid fa-power-off"></i><span>Cerrar sesión</span>
+            </button>
         </li>
     </ul>
 </nav>
@@ -62,7 +71,7 @@
         border-top: 2px solid var(--border-gray-color);
         height: calc(100dvh - var(--header-height));
         overflow-y: auto;
-        width: calc(25px + (var(--content-padding) + 5px) * 2);
+        width: calc(25px + (var(--section-padding)) * 2);
 
         & ul {
             overflow-x: hidden;
@@ -74,9 +83,9 @@
                 display: flex;
                 flex-wrap: wrap;
                 font-size: var(--font-size-small);
-                height: calc(45px + (var(--content-padding) + 5px));
+                height: calc(45px + (var(--section-padding)));
                 justify-content: space-between;
-                padding: calc(var(--content-padding) / 2) calc(var(--content-padding) + 5px);
+                padding: calc(var(--content-padding) / 2) calc(var(--section-padding));
                 text-decoration: none;
                 transition: all .1s ease;
                 width: 100%;
@@ -93,7 +102,7 @@
                     font-size: calc(var(--font-size-base) - 2px);
                     height: 45px;
                     opacity: 0;
-                    width: calc(100% - 25px - (var(--content-padding) + 5px));
+                    width: calc(100% - 25px - (var(--section-padding)));
                 }
 
                 &.active{

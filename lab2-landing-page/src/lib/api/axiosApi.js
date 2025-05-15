@@ -21,7 +21,7 @@ export const apiHttp = async (method, endpoint, data = null, params = null, opti
         ...defaultHeaders,
         ...options.headers,
         ...(jwt ? { Authorization: `Bearer ${jwt}` } : {}),
-    }; 
+    };
 
     // Configura la URL de la API a la que se va a realizar la petición
     const url = `${API_URL_BACKEND}${endpoint}`;

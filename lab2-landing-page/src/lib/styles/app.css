@@ -39,6 +39,7 @@
     --header-height: 80px;
     --footer-height: 44px;
     --content-padding: 20px;
+    --section-padding: 25px;
 }
 
 * {

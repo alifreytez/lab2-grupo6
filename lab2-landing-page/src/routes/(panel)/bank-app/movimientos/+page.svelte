@@ -11,7 +11,6 @@
     let movements = [];
 
     $: if (currentPage || pageSize || multiplier) {
-        console.log("cambio algo: ", { currentPage, pageSize, multiplier });
         getMovements();
     }
 

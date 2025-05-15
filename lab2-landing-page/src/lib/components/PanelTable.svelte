@@ -20,7 +20,6 @@
 		
 		currentPage = currentPage + 1;
 	}
-	console.log({ currentPage, limitPerPage })
 </script>
 
 <div class="table-container table-{id}">
@@ -77,7 +76,7 @@
 				<button
 					aria-label="pagination-next"
 					onclick={btnPaginationNext}
-					class:blocked={data.length <= limitPerPage}
+					class:blocked={data.length < limitPerPage}
 				>
 					<i class="fa-solid fa-angle-right"></i>
 				</button>

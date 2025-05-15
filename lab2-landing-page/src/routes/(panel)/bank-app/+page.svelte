@@ -22,7 +22,7 @@
             // Obtener saldo del usuario con autenticación JWT
             const balanceResponse = await getBalanceAPI();
 
-            balance = balanceResponse !== null ? `${balanceResponse} Bs.` : "Error obteniendo saldo";
+            balance = balanceResponse !== null ? `${new Intl.NumberFormat("de-DE").format(balanceResponse)} Bs.` : "Error obteniendo saldo";
         } catch (error) {
             console.error("Error al obtener información:", error);
         }

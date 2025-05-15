@@ -10,6 +10,10 @@
     let currentPage = 1, pageSize = 10, multiplier = 1;
     let movements = [];
 
+    $: if (pageSize || multiplier) {
+        currentPage = 1;
+    }
+
     $: if (currentPage || pageSize || multiplier) {
         getMovements();
     }

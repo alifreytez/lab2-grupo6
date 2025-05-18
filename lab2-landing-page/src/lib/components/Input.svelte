@@ -2,35 +2,115 @@
     export let name;
     export let placeholder;
     export let value;
+    export let sideElement;
+    export let isError;
     export let oninput = () => {};
+
+    let focused = false;
 </script>
 
-<input type="text"
-    id={name}
-    name={name.replaceAll("-", "_")}
-    bind:value={value}
-    {oninput}
-    placeholder="E.j.: {placeholder}"
-/>
+{#if sideElement != null}
+    <div class="complex-input-container" class:focused={focused} class:error={isError}>
+        <div class="side-element">
+            {#if sideElement.type == 'text'}
+                <span>{sideElement.content}</span>
+            {/if}
+        </div>
+        <input type="text"
+            id={name.replaceAll("_", "-")}
+            {name}
+            {oninput}
+            placeholder="{placeholder ? `E.j.: ${placeholder}` : ''}"
+            onfocus={() => focused = true}
+            onblur={() => focused = false}
+            bind:value={value}
+            autocomplete="off"
+        />
+    </div>
+{:else}
+    <input type="text"
+        id={name.replaceAll("_", "-")}
+        {name}
+        {oninput}
+        placeholder="{placeholder ? `E.j.: ${placeholder}` : ''}"
+        bind:value={value}
+        class:error={isError}
+        autocomplete="off"
+    />
+{/if}
 
 <style>
-    input {
-        align-content: center;
-        border: 1px solid var(--border-gray-color);
-        border-radius: var(--border-input-radius);
-        display: block;
+    .complex-input-container {
+        align-items: center;
+        border: 2px solid var(--border-gray-color);
+        border-radius: var(--border-radius);
+        display: grid;
+        gap: 2px;
+        grid-template-columns: 50px 1fr;
         height: var(--input-height);
-        outline: none;
-        padding: 10px;
-        width: 100%;
-        z-index: 1;
+
+        & .side-element {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            font-weight: 600;
+            justify-content: center;
+            height: 100%;
+
+            &::after {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 2px;
+                background-color: var(--border-gray-color);
+                right: -2px;
+            }
+        }
+
+        & input {
+            height: calc(var(--input-height) - 4px);
+        }
+
+        &.focused {
+            border-color: var(--text-color);
+
+            & .side-element {
+
+                &::after {
+                    background-color: var(--text-color);
+                }
+            }
+        }
+
+        &.error {
+            border-color: var(--wrong-color);
+
+            & .side-element {
+
+                &::after {
+                    background-color: var(--wrong-color);
+                }
+            }
+
+            & input {
+                color: var(--wrong-color);
+            }
+        }
+    }
+
+    input {
 
         &::placeholder {
             color: rgba(118, 122, 125, .8);
         }
 
         &:focus {
-            border-color: var(--primary-color);
+            border-color: var(--text-black-color);
+        }
+        
+        &.error {
+            border-color: var(--wrong-color);
+            color: var(--wrong-color);
         }
     }
 </style>

@@ -5,15 +5,15 @@ const routes = {
         type: 'navbar',
         path: '/bank-app',
     },
-    consolidatedPosition: {
+    /*consolidatedPosition: {
         iconClass: 'fa-solid fa-wallet',
         desc: 'Posición Consolidada',
         type: 'navbar',
         path: '/bank-app/posicion-consolidada',
-    },
+    },*/
     transfers: {
         iconClass: 'fa-solid fa-money-bill-transfer',
-        desc: 'Transferencias y Pagos',
+        desc: 'Transferencias',
         type: 'navbar',
         path: '/bank-app/transferencias',
     },

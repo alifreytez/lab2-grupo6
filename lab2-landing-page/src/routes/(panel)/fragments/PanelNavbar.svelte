@@ -187,11 +187,11 @@
 
                       
                 &.navbar {
-                    height: calc(100% - 140px);
+                    height: calc(100% - 72px);
                 }
 
                 &.userbar {
-                    height: 140px;
+                    height: 72px;
                 }
             }
 

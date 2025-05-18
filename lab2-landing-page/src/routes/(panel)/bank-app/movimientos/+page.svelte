@@ -7,7 +7,7 @@
 	import { onMount } from 'svelte';
 
     export let data;
-    let currentPage = 1, pageSize = 10, multiplier = 1;
+    let currentPage = 1, pageSize = 10, multiplier = null;
     let movements = [];
 
     $: if (pageSize || multiplier) {
@@ -22,7 +22,7 @@
         try {
             const res = await getMovementsAPI({ currentPage, pageSize, multiplier });
             
-            movements = res.data.map(row => ({ ...row, amount: `$ ${row.amount}`, balance: `$ ${row.balance}`, created_at: new Date(row.created_at).toLocaleDateString() }));
+            movements = res.map(row => ({ ...row, amount: `$ ${row.amount}`, balance: `$ ${row.balance}`, created_at: new Date(row.created_at).toLocaleDateString() }));
         } catch (err) {
             console.log({ err });
             return null;
@@ -31,19 +31,26 @@
     const tableColumns = [
         {
             name: 'id',
-            desc: 'Ref.'
+            desc: 'Ref.',
+            rowAlignment: 'center',
         },
         {
             name: 'account_number',
-            desc: 'Cuenta'
+            desc: 'Cuenta',
+            rowAlignment: 'center',
         },
         {
             name: 'amount',
-            desc: 'Monto'
+            valueType: 'currency',
+            desc: 'Monto',
+            rowAlignment: 'center',
+            width: 'max-content',
         },
         {
             name: 'balance',
-            desc: 'Balance'
+            valueType: 'currency',
+            desc: 'Balance',
+            rowAlignment: 'center',
         },
         {
             name: 'description',
@@ -51,7 +58,8 @@
         },
         {
             name: 'created_at',
-            desc: 'Fecha'
+            desc: 'Fecha',
+            rowAlignment: 'center',
         },
     ]
 
@@ -72,7 +80,8 @@
                 type="select"
                 bind:value={multiplier}
                 data={[
-                    { text: 'Crédito', value: 1, selected: true },
+                    { text: 'Todas', value: null, selected: true},
+                    { text: 'Crédito', value: 1 },
                     { text: 'Débito', value: -1 },
                 ]}
             />
@@ -96,11 +105,29 @@
             bind:currentPage={currentPage}
             limitPerPage={pageSize}
             pagination={true}
+            rowClassControl={({ rowData, column }) => {
+                if (column == 'amount') {
+                    if (rowData.multiplier == 1)
+                        return 'credit-row';
+                    else if (rowData.multiplier == -1)
+                        return 'debit-row';
+                }
+            }}
         />
     </PanelSection>
 </div>
 
 <style>
+    :global(.credit-row) {
+        font-weight: 500;
+        color: var(--well-color);
+    }
+
+    :global(.debit-row) {
+        font-weight: 500;
+        color: var(--wrong-color);
+    }
+    
     .filters-container {
         display: flex;
         flex-direction: row-reverse;

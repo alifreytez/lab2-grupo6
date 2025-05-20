@@ -7,6 +7,7 @@
 	export let currentPage;
 	export let limitPerPage;
 	export let pagination = false;
+	export let rowClassControl = () => '';
 
 	const btnPaginationPrev = (event) => {
 		if (currentPage == 1)
@@ -20,6 +21,17 @@
 		
 		currentPage = currentPage + 1;
 	}
+	const processValue = ({ columnData, rowData }) => {
+		let value = rowData[columnData.name];
+
+		if (columnData.valueType == 'currency') {
+			const amount = Array.from(value.match(/\d+(?:(?:\.|\,)?\d+)?/))[0].replace(',', '.');
+
+			return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
+		}
+
+		return value;
+	};
 </script>
 
 <div class="table-container table-{id}">
@@ -48,8 +60,13 @@
 									
 									<td>{index + 1 + offset}</td>
 								{/if}
-								{#each columns as { name }}
-									<td>{rowData[name]}</td>
+								{#each columns as columnData}
+									<td
+										style="width: {columnData.width ? columnData.width : 'auto'}; text-align: {columnData.rowAlignment ? columnData.rowAlignment : 'left'}"
+										class={rowClassControl({ rowData, column: columnData.name })}
+									>
+										{processValue({ columnData, rowData })}
+									</td>
 								{/each}
 							</tr>
 						{/each}
@@ -108,6 +125,18 @@
 						font-weight: bold;
 						padding: calc(var(--content-padding) / 2);
 						text-align: center;
+						max-width: 300px;
+
+						&:not(:last-child)::after {
+							background-color: var(--border-gray-color);
+							content: '';
+							height: 70%;
+							position: absolute;
+							right: -2px;
+							top: 50%;
+							transform: translateY(-50%);
+							width: 2px;
+						}
 					}			
 				}
 
@@ -118,8 +147,20 @@
 						& td {
 							align-items: center;
 							border-bottom: 1px solid var(--border-gray-color);
-							padding: calc(var(--content-padding) / 2);
+							padding: calc(var(--content-padding) / 2) calc(var(--content-padding));
 							text-align: left;
+							max-width: 300px;
+
+							&:not(:last-child)::after {
+								background-color: var(--bg-gray-color);
+								content: '';
+								height: 70%;
+								position: absolute;
+								right: -2px;
+								top: 50%;
+								transform: translateY(-50%);
+								width: 2px;
+							}
 						}
 
 						&:last-child td {
@@ -194,5 +235,5 @@
 			}
 		}
 	}
-  </style>
+</style>
 

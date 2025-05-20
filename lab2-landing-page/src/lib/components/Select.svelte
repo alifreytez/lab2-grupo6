@@ -14,19 +14,34 @@
     export let addNoneOption = true;
     
     const dispatchEvent = createEventDispatcher();
-    let select;
+    let select, isEmpty = null;
     
     value = value == '' ? 'none' : value;
 
-    if (Array.isArray(data) && data[0] != null && data[0].value != 'none' && addNoneOption)
+    if (Array.isArray(data) && addNoneOption && (data.length == 0 || (data[0] != null && data[0].value != 'none')))
         data.unshift({ text: 'Seleccionar', value: 'none' });
+    
+    isEmpty = (data.length == 0 || (data.find(dat => dat.value == value) == null && !addNoneOption));
 </script>
 
 <div class="alidev-select-wrapper" class:filter-type={filterType} class:little={fze == 'little'} class:normal={fze == 'normal'} use:clickOutside={() => menuShowed = false}>
     <!-- svelte-ignore a11y-no-static-element-interactions -->
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div class="alidev-select-text-wrapper" id="{name}" class:focused={menuShowed} class:wrong={isError && isError != null} on:click={() => menuShowed = !menuShowed}>
-        <span class="alidev-select-text">{data.find(dat => dat.value == value)?.text || data.find(dat => dat.value == value)?.value}</span>
+    <div
+        id="{name}"
+        class="alidev-select-text-wrapper"
+        class:focused={menuShowed}
+        class:wrong={isError && isError != null}
+        class:blocked={isEmpty}
+        on:click={() => !isEmpty ? menuShowed = !menuShowed : null}
+    >
+        <span class="alidev-select-text">
+            {data.find(dat => dat.value == value)?.text
+            || data.find(dat => dat.value == value)?.value
+            || (data.length > 0 && data[0].text)
+            || ''
+            }
+        </span>
         <span class="alidev-select-menu-btn flex-wrap">
             <i class="fa-solid fa-angle-down"></i>
         </span>
@@ -64,12 +79,13 @@
 
         & .alidev-select-text-wrapper {
             align-items: center;
-            border: 1px solid var( --border-gray-color);
+            border: 2px solid var(--border-gray-color);
             border-radius: var(--border-radius);
-            color: var(--text-black-color);
+            color: var(--text-color);
             cursor: pointer;
             display: flex;
             flex-wrap: wrap;
+            height: var(--input-height);
             justify-content: space-between;
             line-height: 1.5;
             padding: 10px 33px 10px 10px;
@@ -78,7 +94,7 @@
             z-index: 1;
 
             &.focused {
-                border-color: var(--primary-color);
+                border-color: var(--text-color);
             }
 
             &.wrong {
@@ -93,6 +109,26 @@
                 }
             }
 
+            &.blocked {
+                /*background-color: var(--bg-gray-color);
+
+                & .alidev-select-menu-btn {
+                    background-color: var(--bg-gray-color);
+                }*/
+
+                &::after {
+                    background-color: var(--blocked-color-8);
+                    border-radius: var(--border-radius);
+                    content: "";
+                    cursor: default;
+                    height: 100%;
+                    left: 0;
+                    position: absolute;
+                    width: 100%;
+                    z-index: 2;
+                }
+            }
+
             /* texto seleccionado */
             
             & .alidev-select-text {
@@ -100,20 +136,25 @@
                 line-height: inherit;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             /* flecha del boton */
 
             & .alidev-select-menu-btn {
                 align-items: center;
-                background-color: rgba(255,255,255,.8);
+                background-color: var(--bg-white-color);
                 border-top-right-radius: var(--border-radius);
                 border-bottom-right-radius: var(--border-radius);
+                display: flex;
+                flex-wrap: wrap;
+                height: calc(var(--input-height) - 4px);
                 position: absolute;
                 top: 50%;
                 right: 0;
                 padding: 0 10px;
                 transform: translateY(-50%);
+                z-index: 1;
 
                 & i {
                     transition: all var(--trans-time) ease;
@@ -154,8 +195,7 @@
 
                 &[data-selected=true],
                 &:hover {
-                    color: var(--text-black-color);
-                    background-color: var(--border-gray-color);
+                    background-color: var(--blocked-color-8);
                 }
             }
 

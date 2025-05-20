@@ -5,6 +5,7 @@
     import Header from './fragments/Header.svelte';
     import Navbar from './fragments/PanelNavbar.svelte';
     import Footer from './fragments/Footer.svelte';
+	import Notification from '@components/Notification.svelte';
     import { panelNavbar } from '@stores/panelNavbar.js';
 	import { onMount } from 'svelte';
 	
@@ -27,6 +28,7 @@
     <title>{data.title_base + data.title}</title>
 </svelte:head>
 
+<Notification />
 <div class="page-container {!$panelNavbar ? 'navbar-hidden':''}">
     <div class="navbar">
         <Header />

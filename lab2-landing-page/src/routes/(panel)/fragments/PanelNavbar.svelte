@@ -129,14 +129,14 @@
             }
                     
             &.navbar {
-                height: calc(100% - 72px);
+                height: calc(100% - 141px);
                 overflow-y: auto;
                 width: 100%;
             }
 
             &.userbar {
                 border-top: 2px solid var(--border-gray-color);
-                height: 72px;
+                height: 141px;
             }
         }
 
@@ -187,11 +187,11 @@
 
                       
                 &.navbar {
-                    height: calc(100% - 140px);
+                    height: calc(100% - 131px);
                 }
 
                 &.userbar {
-                    height: 140px;
+                    height: 131px;
                 }
             }
 

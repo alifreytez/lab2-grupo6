@@ -5,12 +5,6 @@ const routes = {
         type: 'navbar',
         path: '/bank-app',
     },
-    /*consolidatedPosition: {
-        iconClass: 'fa-solid fa-wallet',
-        desc: 'Posición Consolidada',
-        type: 'navbar',
-        path: '/bank-app/posicion-consolidada',
-    },*/
     transfers: {
         iconClass: 'fa-solid fa-money-bill-transfer',
         desc: 'Transferencias',
@@ -28,6 +22,12 @@ const routes = {
         desc: 'Contactos',
         type: 'navbar',
         path: '/bank-app/contactos',
+    },
+    accountSettings: {
+        iconClass: 'fa-solid fa-gear',
+        desc: 'Cambiar contraseña',
+        type: 'userbar',
+        path: '/bank-app/perfil',
     },
 }
 

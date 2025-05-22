@@ -23,12 +23,18 @@ export const whoAmIAPI = async () => {
     try {
         const response = await apiHttp("GET", "/v1/client/user/whoami", {}, headers);
         console.log("Respuesta completa de whoAmIAPI:", response);
-        return response.data ?? null;  // Asegurar que retornamos solo "data"
+        if (response.data) {
+            console.log("Número de cuenta recibido:", response.data.account_number);
+        } else {
+            console.error("Error: No se encontró 'data' en la respuesta.");
+        }
+        return response.data ?? null;
     } catch (error) {
         console.error("Error obteniendo datos del usuario:", error);
         return null;
     }
 };
+
 
 
 

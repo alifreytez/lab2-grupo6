@@ -2,26 +2,38 @@
     import { onMount } from "svelte";
     import { whoAmIAPI, getBalanceAPI } from "$lib/api/modules/user";
     import PanelHeader from '@components/PanelHeader.svelte';
-	import PanelSection from "@components/PanelSection.svelte";
+    import PanelSection from "@components/PanelSection.svelte";
 
     export let data;
     let user = null;
-    let balance = "Cargando..."; // Mensaje inicial para evitar valores vacíos
+    let balance = "Cargando...";
+    let accountNumber = "Cargando...";
+
+    // Función para copiar al portapapeles
+    function copyToClipboard() {
+        navigator.clipboard.writeText(accountNumber).then(() => {
+            alert("Número de cuenta copiado al portapapeles! ✅");
+        }).catch(err => {
+            console.error("Error al copiar:", err);
+        });
+    }
 
     onMount(async () => {
         try {
-            // Obtener datos del usuario autenticado
             const userResponse = await whoAmIAPI();
+            console.log("Respuesta de whoAmIAPI:", userResponse);
 
-            if (userResponse) {
-                user = userResponse; // Asigna directamente los datos del usuario
+            if (userResponse && userResponse.account_number) {
+                user = userResponse;
+                accountNumber = user.account_number;
+                console.log("Número de cuenta asignado:", accountNumber);
             } else {
-                console.error("Error: No se recibieron datos del usuario.");
+                console.error("Error: No se recibió el número de cuenta.");
+                accountNumber = "Número de cuenta no disponible";
             }
 
-            // Obtener saldo del usuario con autenticación JWT
             const balanceResponse = await getBalanceAPI();
-
+            console.log("Respuesta de getBalanceAPI:", balanceResponse);
             balance = balanceResponse !== null ? `${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(balanceResponse)}` : "Error obteniendo saldo";
         } catch (error) {
             console.error("Error al obtener información:", error);
@@ -39,7 +51,11 @@
         {#if user}
             <div class="saludo-container">
                 <h2>¡Hola, {user.first_name} {user.last_name}! 👋</h2>
-                <p>Tu saldo actual es: <strong>{balance}</strong></p>
+                <p>
+                    <strong>Número de cuenta:</strong> {accountNumber}
+                    <button class="copy-button" on:click={copyToClipboard}>📋</button>
+                </p>
+                <p><strong>Saldo actual:</strong> {balance}</p>
             </div>
         {/if}
     </PanelSection>
@@ -52,4 +68,33 @@
         }
     }
 
+    .saludo-container {
+        text-align: center;
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        font-size: 24px;
+        color: #00796b;
+    }
+    p {
+        font-size: 18px;
+        color: #333;
+    }
+
+    .copy-button {
+        margin-left: 10px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    .copy-button:hover {
+        color: #00796b;
+    }
 </style>
+

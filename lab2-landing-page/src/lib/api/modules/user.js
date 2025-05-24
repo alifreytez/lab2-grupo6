@@ -61,6 +61,29 @@ export const getBalanceAPI = async () => {
     }
 };
 
+// Función para cambiar contraseña 
 
 
+export const changePasswordAPI = async (passwordData) => {
+    const token = getJWT(); 
+    if (!token) {
+        console.error("❌ Error: No hay JWT disponible.");
+        return { error: true, message: "⚠️ Debes iniciar sesión.", status: 401 };
+    }
+
+    const headers = {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json"
+    };
+
+    try {
+        const response = await apiHttp("PATCH", "/v1/client/user/password", passwordData, null, { headers });
+
+        console.log("✅ Respuesta completa de changePasswordAPI:", response);
+        return response ?? null;
+    } catch (error) {
+        console.error("❌ Error al cambiar la contraseña:", error);
+        return { error: true, message: "❌ Hubo un error. Intenta de nuevo.", status: 500 };
+    }
+};
 

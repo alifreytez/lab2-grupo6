@@ -1,3 +1,6 @@
+// Este módulo maneja la API de contactos y se encarga de realizar las peticiones, incluyendo la creación, actualización, eliminación y obtención de contactos.
+
+// Importaciones necesarias
 import { apiHttp } from "$lib/api/axiosApi";
 import { getJWT } from "$lib/utils/localStorage"; 
 

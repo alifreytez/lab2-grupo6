@@ -1,5 +1,5 @@
 <script>
-    import Saludo from "./fragments/Saludo.svelte"; 
+    import Saludo from "./fragments/saludo.svelte"; 
 </script>
 
 <main>
@@ -7,4 +7,3 @@
     <!-- Otros elementos de la página -->
 </main>
 
-<h1>ENTRE AL BANCO</h1>

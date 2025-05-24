@@ -19,7 +19,7 @@
     <p class="requisitos">
       Solo debes tener a la mano tu RIF y cédula de identidad vigente.
     </p>
-    <button class="boton" on:click="{irAPaginaEnConstruccion}">
+    <button class="boton" on:click="{irARegistrar}">
       <span class="boton-texto">Regístrate aquí</span> <span class="boton-icono">📝</span>
     </button>
   </div>
@@ -28,8 +28,8 @@
 
 <script>
   // Función para redirigir a la página en construcción
-  const irAPaginaEnConstruccion = () => {
-    window.location.href = "/PaginaConstruccion"; // Ruta por la URL de tu página en construcción
+  const irARegistrar = () => {
+    window.location.href = "/register"; // Ruta por la URL de tu página en construcción
   };
 </script>
 

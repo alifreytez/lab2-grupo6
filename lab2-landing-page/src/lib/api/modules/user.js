@@ -1,4 +1,4 @@
-// Este archivo contiene las funciones para interactuar con la API de usuario
+// Este modulo contiene las funciones para interactuar con la API de usuario
 // y se encarga de realizar las peticiones HTTP necesarias para el registro, inicio de sesión, quien soy, balance y verificación del usuario.
 // Se utiliza la función apiHttp para realizar las peticiones, que se encuentra en el archivo axiosApi.js.
 // Las funciones devuelven una solicitud que se resuelve con la respuesta de la API o se rechaza con un error.
@@ -9,6 +9,8 @@ import { getJWT } from "$lib/utils/localStorage";
 export const loginAPI = (loginValues) => 
     apiHttp("POST", "/v1/public/client/user/login", loginValues);
 
+// Función para saber quien soy
+// Esta función se encarga de obtener los datos del usuario actual
 export const whoAmIAPI = async () => {
     const token = getJWT(); 
     if (!token) {
@@ -37,7 +39,7 @@ export const whoAmIAPI = async () => {
 
 
 
-
+// Función para registrar obtener el balance o saldo del usuario
 export const getBalanceAPI = async () => {
     const token = getJWT(); // Obtener el JWT almacenado en localStorage
     if (!token) {

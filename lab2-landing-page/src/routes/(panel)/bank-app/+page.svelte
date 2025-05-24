@@ -1,23 +1,33 @@
+  
+<!-- Componente: Home del Banco
+Este componente muestra un saludo al usuario, su número de cuenta y saldo actual.  -->         
 <script>
+    // Importar las dependencias necesarias
     import { onMount } from "svelte";
     import { whoAmIAPI, getBalanceAPI } from "$lib/api/modules/user";
     import PanelHeader from '@components/PanelHeader.svelte';
     import PanelSection from "@components/PanelSection.svelte";
+    import { addNotification } from "@stores/notification";
 
+    // Importar el tipo de dato para la página
     export let data;
     let user = null;
     let balance = "Cargando...";
     let accountNumber = "Cargando...";
 
-    // Función para copiar al portapapeles
+    // Función para copiar al portapapeles el número de cuenta
     function copyToClipboard() {
-        navigator.clipboard.writeText(accountNumber).then(() => {
-            alert("Número de cuenta copiado al portapapeles! ✅");
-        }).catch(err => {
-            console.error("Error al copiar:", err);
-        });
+        navigator.clipboard.writeText(accountNumber)
+            .then(() => {
+                addNotification({ type: 'success', msg: "Número de cuenta copiado al portapapeles! ✅" });
+            })
+            .catch(err => {
+                console.error("Error al copiar:", err);
+                addNotification({ type: 'error', msg: "Error al copiar el número de cuenta." });
+            });
     }
 
+    // Cargar datos del usuario y saldo al montar el componente
     onMount(async () => {
         try {
             const userResponse = await whoAmIAPI();
@@ -34,7 +44,9 @@
 
             const balanceResponse = await getBalanceAPI();
             console.log("Respuesta de getBalanceAPI:", balanceResponse);
-            balance = balanceResponse !== null ? `${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(balanceResponse)}` : "Error obteniendo saldo";
+            balance = balanceResponse !== null 
+                ? `${new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(balanceResponse)}` 
+                : "Error obteniendo saldo";
         } catch (error) {
             console.error("Error al obtener información:", error);
         }
@@ -76,10 +88,12 @@
         border-radius: 10px;
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     }
+    
     h2 {
         font-size: 24px;
         color: #00796b;
     }
+    
     p {
         font-size: 18px;
         color: #333;
@@ -97,4 +111,3 @@
         color: #00796b;
     }
 </style>
-

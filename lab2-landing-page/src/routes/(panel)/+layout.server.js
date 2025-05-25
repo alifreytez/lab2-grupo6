@@ -27,7 +27,7 @@ const routes = {
         iconClass: 'fa-solid fa-gear',
         desc: 'Cambiar contraseña',
         type: 'userbar',
-        path: '/bank-app/perfil',
+        path: '/bank-app/password',
     },
 }
 

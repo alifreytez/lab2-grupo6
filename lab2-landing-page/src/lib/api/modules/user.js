@@ -65,25 +65,37 @@ export const getBalanceAPI = async () => {
 
 
 export const changePasswordAPI = async (passwordData) => {
-    const token = getJWT(); 
+    // Obtiene el JWT desde localStorage
+    const token = getJWT();
+    console.log("Token obtenido en changePasswordAPI:", token);
+
     if (!token) {
         console.error("❌ Error: No hay JWT disponible.");
         return { error: true, message: "⚠️ Debes iniciar sesión.", status: 401 };
     }
 
-    const headers = {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json"
+    // Define el endpoint
+    const endpoint = "/v1/client/user/password";
+    console.log("Endpoint usado en changePasswordAPI:", endpoint);
+
+    // Configuración de encabezados para la solicitud
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json"
+        }
     };
+    console.log("Password data a enviar:", passwordData);
+    console.log("Configuración de request:", config);
 
     try {
-        const response = await apiHttp("PATCH", "/v1/client/user/password", passwordData, null, { headers });
-
+        // Se realiza la solicitud PATCH
+        const response = await apiHttp("PATCH", endpoint, passwordData, config);
         console.log("✅ Respuesta completa de changePasswordAPI:", response);
-        return response ?? null;
+        // Si no hay datos en la respuesta, se retorna por defecto un objeto que indique éxito.
+        return response.data || { success: true };
     } catch (error) {
         console.error("❌ Error al cambiar la contraseña:", error);
         return { error: true, message: "❌ Hubo un error. Intenta de nuevo.", status: 500 };
     }
 };
-

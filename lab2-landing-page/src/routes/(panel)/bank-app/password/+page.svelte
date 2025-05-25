@@ -22,12 +22,14 @@
     let errors = {};
     let formData = $form;
 
+ 
+
     if (!formData.currentPassword.trim()) {
       errors.currentPassword = "⚠️ Ingresa tu contraseña actual.";
     }
 
-    if (!formData.newPassword.trim()) {
-      errors.newPassword = "⚠️ Ingresa tu nueva contraseña.";
+    if (!formData.newPassword.trim() || formData.newPassword.length < 8) {
+      errors.newPassword = "⚠️ La nueva contraseña debe tener al menos 8 caracteres.";
     }
 
     if (formData.newPassword !== formData.confirmPassword) {

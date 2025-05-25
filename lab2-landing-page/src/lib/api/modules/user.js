@@ -93,7 +93,8 @@ export const changePasswordAPI = async (passwordData) => {
         const response = await apiHttp("PATCH", endpoint, passwordData, config);
         console.log("✅ Respuesta completa de changePasswordAPI:", response);
         // Si no hay datos en la respuesta, se retorna por defecto un objeto que indique éxito.
-        return response.data || { success: true };
+        return response.data ?? response; // Si no hay `data`, devuelve el response completo.
+        
     } catch (error) {
         console.error("❌ Error al cambiar la contraseña:", error);
         return { error: true, message: "❌ Hubo un error. Intenta de nuevo.", status: 500 };

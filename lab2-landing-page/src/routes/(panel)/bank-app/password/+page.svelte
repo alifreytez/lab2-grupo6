@@ -14,6 +14,21 @@
   let successMessage = writable("");
   let loading = writable(false);
 
+// Stores para visualizar la contraseña
+  let showPassword = writable({
+    currentPassword: false,
+    newPassword: false,
+    confirmPassword: false
+});
+
+function toggleVisibility(field) {
+    showPassword.update(state => ({
+        ...state,
+        [field]: !state[field]
+    }));
+}
+
+
   // Función de validación mínima:
   // - Verifica que los campos "Contraseña actual" y "Nueva contraseña" no estén vacíos.
   // - Verifica que "Nueva contraseña" y "Confirmar nueva contraseña" sean iguales.
@@ -87,34 +102,42 @@
   <h1>Cambiar Contraseña</h1>
 
   <!-- Campo de Contraseña Actual -->
-  <input
-    type="password"
-    name="currentPassword"
-    placeholder="Contraseña actual"
-    bind:value={$form.currentPassword}
-  />
+<div class="password-container">
+    <input type={$showPassword.currentPassword ? "text" : "password"} 
+           placeholder="Contraseña actual" 
+           bind:value={$form.currentPassword} />
+    <buttonvisibilidad type="button" class="toggle-password" on:click={() => toggleVisibility('currentPassword')}>
+        <img src={$showPassword.currentPassword ? "/images/eye-open.svg" : "/images/eye-closed.svg"} alt="Ver/Ocultar contraseña">
+    </buttonvisibilidad>
+</div>
+
+  
   {#if $formErrors.currentPassword}
     <p class="error-message">{$formErrors.currentPassword}</p>
   {/if}
 
   <!-- Campo de Nueva Contraseña -->
-  <input
-    type="password"
-    name="newPassword"
-    placeholder="Nueva contraseña"
-    bind:value={$form.newPassword}
-  />
+ <div class="password-container">
+    <input type={$showPassword.newPassword ? "text" : "password"} 
+           placeholder="Nueva contraseña" 
+           bind:value={$form.newPassword} />
+    <buttonvisibilidad type="button" class="toggle-password" on:click={() => toggleVisibility('newPassword')}>
+        <img src={$showPassword.newPassword ? "/images/eye-open.svg" : "/images/eye-closed.svg"} alt="Ver/Ocultar contraseña">
+    </buttonvisibilidad>
+</div>
   {#if $formErrors.newPassword}
     <p class="error-message">{$formErrors.newPassword}</p>
   {/if}
 
   <!-- Campo de Confirmar Nueva Contraseña -->
-  <input
-    type="password"
-    name="confirmPassword"
-    placeholder="Confirmar nueva contraseña"
-    bind:value={$form.confirmPassword}
-  />
+ <div class="password-container">
+    <input type={$showPassword.confirmPassword ? "text" : "password"} 
+           placeholder="Confirmar nueva contraseña" 
+           bind:value={$form.confirmPassword} />
+    <buttonvisibilidad type="button" class="toggle-password" on:click={() => toggleVisibility('confirmPassword')}>
+       <img src={$showPassword.confirmPassword ? "/images/eye-open.svg" : "/images/eye-closed.svg"} alt="Ver/Ocultar contraseña">
+    </buttonvisibilidad>
+</div>
   {#if $formErrors.confirmPassword}
     <p class="error-message">{$formErrors.confirmPassword}</p>
   {/if}
@@ -179,4 +202,22 @@
     border-radius: 5px;
     display: inline-block;
   }
+
+buttonvisibilidad {
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px; /*  Ajuste para mantener tamaño uniforme */
+    position: absolute;
+    right: 10px; /*  Mueve el ícono a la derecha */
+    top: 50%; /*  Asegura que el botón esté centrado verticalmente */
+    transform: translateY(-50%); /* Lo baja ligeramente para mejor alineación */
+  }
+
+.password-container .toggle-password img {
+    width: 18px;
+    height: 18px;
+    opacity: 0.7; /* Suavizamos la apariencia */
+}
+
 </style>

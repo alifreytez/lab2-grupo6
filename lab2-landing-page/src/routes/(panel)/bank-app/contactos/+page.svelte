@@ -228,9 +228,9 @@ Incluye funciones para agregar, editar, eliminar, buscar contacto por alias y li
 
     .content-container {
         padding: var(--content-padding);
-        background: var(--bg-gray-color);
+        background-color: var(--bg-white-color);
         border-radius: var(--border-radius);
-        box-shadow: 0px 4px 10px var(--border-gray-color);
+        box-shadow: none;
     }
 
     .form-container {

@@ -30,7 +30,7 @@
             status: null,
         },
     }
-    let user, parsedUserBalance, registeredAccounts;
+    let useAccountNumberSelectField, user, parsedUserBalance, registeredAccounts = [];
 
     const handleSubmit = async ({ formData, cancel }) => {
         formValidation.account_number.status = formValidation.account_number.check(formData.get('account_number'), false);
@@ -66,7 +66,7 @@
             registeredAccounts = _registeredAccounts.map(acc => ({
                 text: `${acc.alias} - ${acc.description}`,
                 value: acc.account_number,
-            }));
+            })) ?? [];
 
             parsedUserBalance = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(user.balance);
         } catch (error) {
@@ -92,18 +92,40 @@
                             type="only-display"
                             value="({"01298319273126387343".slice(0,4)}**${"01298319273126387343".slice(-2)}) - {parsedUserBalance} Disp"
                         />
-                        {#if registeredAccounts != null}
-                            <PanelFormEntry
-                                label="Cuenta a abonar"
-                                name="account_number"
-                                type="select"
-                                data={registeredAccounts}
-                                addNoneOption={true}
-                                bind:value={form.account_number}
-                                isError={formValidation.account_number.status === false}
-                                selectOption={(event) =>  formValidation.account_number.status = formValidation.account_number.check(event.detail.value, true)}
-                            />
-                        {/if}
+                        <div class="box-accnumber">
+                            {#if useAccountNumberSelectField}
+                                <PanelFormEntry
+                                    label="Cuenta a abonar"
+                                    name="account_number"
+                                    type="select"
+                                    data={registeredAccounts}
+                                    addNoneOption={true}
+                                    bind:value={form.account_number}
+                                    isError={formValidation.account_number.status === false}
+                                    selectOption={(event) =>  formValidation.account_number.status = formValidation.account_number.check(event.detail.value, true)}
+                                />
+                            {:else}
+                                <PanelFormEntry
+                                    label="Cuenta a abonar"
+                                    name="account_number"
+                                    type="input"
+                                    placeholder="00000000000000000"
+                                    bind:value={form.account_number}
+                                    isError={formValidation.account_number.status === false}
+                                    onInput={(event) => formValidation.account_number.status = formValidation.account_number.check(event.target.value, true)}
+                                />
+                            {/if}
+                            <button
+                                class="secondary-button"
+                                class:active={useAccountNumberSelectField}
+                                type="button"
+                                aria-label="switch account number field type"
+                                onclick={(event) => {
+                                    form.account_number = null;
+                                    useAccountNumberSelectField = !useAccountNumberSelectField;
+                                }}
+                            ><i class="fa-solid fa-list"></i></button>
+                        </div>
                     </div>
                     <div class="double-box">
                         <PanelFormEntry
@@ -153,6 +175,32 @@
 
     .double-box {
         gap: var(--section-padding);
+    }
+
+    .box-accnumber {
+        align-items: flex-end;
+        display: grid;
+        grid-gap: calc(var(--content-padding) / 2);
+        grid-template-columns: 1fr 43px;
+
+        & .secondary-button {
+            background-color: var(--white-color);
+            border: 2px solid var(--border-gray-color);
+            border-radius: var(--border-radius);
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.3rem;
+            font-weight: 600;
+            height: var(--input-height);
+            width: var(--input-height);
+            text-transform: uppercase;
+        
+            &.active {
+                background-color: var(--primary-color);
+                border-color: var(--primary-color);
+                color: var(--white-color);
+            }
+        }
     }
 
     .notes-container {

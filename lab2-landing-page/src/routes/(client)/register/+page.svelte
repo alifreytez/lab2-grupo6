@@ -203,4 +203,6 @@
     {#if $successMessage}
         <p class="success-message">{$successMessage}</p>
     {/if}
+
+    <p class="login-link">¿Ya tienes cuenta? <a href="/login">Inicia sesión </a></p> 
 </div>

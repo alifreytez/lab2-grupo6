@@ -13,6 +13,12 @@
     let errorMessage = ""; // Variable que almacena el mensaje de error en caso de que ocurra un problema durante el inicio de sesión
     let isLoading = writable(false); // Crea una tienda reactiva para manejar el estado de carga (loading) del inicio de sesión
 
+    // Funcionalidad para mostrar/ocultar la contraseña
+    let showPassword = writable(false);
+    function toggleVisibility() {
+        showPassword.update(val => !val);
+    }
+
     // Define los validadores para los campos del formulario
     const FORM_VALIDATORS = {
         email: ["required", "email"], // Define los validadores para el campo de correo electrónico
@@ -23,7 +29,7 @@
     // Se ejecuta cuando el usuario envía el formulario de inicio de sesión
     async function login() {
         errorMessage = ""; // Inicializa el mensaje de error
-        isLoading.set(true); // inicializa el estado de carga a verdadero
+        isLoading.set(true); // Inicializa el estado de carga a verdadero
 
         const errors = hasFieldsErrors({ email, password }, FORM_VALIDATORS); // Valida los campos del formulario utilizando la función hasFieldsErrors
         if (isObjNotEmpty(errors)) {
@@ -56,9 +62,7 @@
         }
 
         isLoading.set(false); // Cambia el estado de carga a falso
-    } // fin de Función que maneja el inicio de sesión del usuario
-
-
+    }
 </script>
 
 <div class="login-container">
@@ -68,8 +72,16 @@
         Bienvenido a la <strong>Banca En Línea</strong>. Por favor, ingresa con tus <strong>credenciales</strong>.
     </p>
     <form class="login-form" on:submit|preventDefault={login}> 
-        <input type="email" bind:value={email} placeholder="Ej: usuario@email.com" required /> 
-        <input type="password" bind:value={password} placeholder="Ej: Abc1234!" required /> 
+    <input type="email" bind:value={email} placeholder="Ej: usuario@email.com" required /> 
+        
+        <!-- Campo de contraseña con funcionalidad de visibilidad -->
+        <div class="password-container">
+            <input type={$showPassword ? "text" : "password"} bind:value={password} placeholder="Ej: Abc1234!" required />
+            <button type="button" class="toggle-password-button" on:click={toggleVisibility}>
+                <img src={$showPassword ? "/images/eye-open.svg" : "/images/eye-closed.svg"} alt="Ver/Ocultar contraseña" class="toggle-password-icon" />
+            </button>
+        </div>
+        
         <button type="submit" disabled={$isLoading}> 
             {#if $isLoading} 
                 <span class="loader"></span> 
@@ -81,7 +93,7 @@
             <p>{errorMessage}</p>
         {/if}
     </form>
-    <p class="register-link">¿No tienes cuenta? <a href="/register">Regístrate aquí</a></p> 
+    <p class="register-link">¿No tienes cuenta? <a href="/register">Registrate aqui</a></p> 
 </div>
 
 <style>
@@ -102,10 +114,10 @@
     }
 
     .login-title {
-        font-size: 24px; /* Tamaño de fuente del título */
+        font-size: 24px; /* Tamaño de fuente del titulo */
         font-weight: bold; /* grosor de la fuente */
-        color: black; /* Color del título */
-        text-align: center; /* Centra el texto del título */
+        color: black; /* Color del titulo */
+        text-align: center; /* Centra el texto del titulo */
     }
 
     .login-text {
@@ -144,7 +156,7 @@
         border: none; /* Sin borde */
         border-radius: 5px; /* Bordes redondeados del botón */
         cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-        font-size: 16px; /* Tamaño de fuente del botón */
+        font-size: 16px; /* Tama\u00f1o de fuente del botón */
         font-weight: bold; /* Grosor de la fuente del botón */
         width: 100%; /* Ancho del botón */
     }
@@ -159,8 +171,37 @@
     }
 
     .register-link {
-        text-align: center;/* Centra el enlace de registro */
+        text-align: center; /* Centra el enlace de registro */
         margin-top: 15px; /* Espacio superior del enlace de registro */
         color: #00796b; /* Color del enlace de registro */
+    }
+    
+    /* Css para Funcionalidad para mostrar/ocultar la contraseña */
+    .password-container {
+        position: relative; /* Posiciona el contenedor de la contrasena */
+    }
+    
+    .password-container input {
+        width: 100%; /* Ancho del campo de entrada de contraseña */
+        padding-right: 50px; /* Deja espacio para el botón */
+        box-sizing: border-box; /* Asegura que el padding no afecte el ancho total del campo */
+    }
+    
+    .toggle-password-button {
+        position: absolute; /* Posiciona el boton de visibilidad de la contraseña */
+        top: 30%;             /* Ajusta este valor para colocarlo un poco más arriba */
+        right: -310px; /* Ajusta la posición horizontal del botón */
+        transform: translateY(-35%); /* Centra verticalmente el botón */
+        background-color: transparent !important; /* Fondo transparente */
+        border: none; /* Sin borde */
+        cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+        padding: 0 !important; /* Sin padding */
+        margin: 0; /* Sin margen */
+    }
+    
+    .toggle-password-icon {
+        width: 24px !important; /* Ancho del icono de visibilidad de la contraseña */
+        height: 24px !important; /* Alto del icono de visibilidad de la contraseña */
+        opacity: 0.7; /* Opacidad del icono */
     }
 </style>

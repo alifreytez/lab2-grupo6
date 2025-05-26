@@ -3,11 +3,11 @@
 Este componente muestra un saludo al usuario, su número de cuenta y saldo actual.  -->         
 <script>
     // Importar las dependencias necesarias
-    import { onMount } from "svelte";
-    import { whoAmIAPI, getBalanceAPI } from "$lib/api/modules/user";
-    import PanelHeader from '@components/PanelHeader.svelte';
-    import PanelSection from "@components/PanelSection.svelte";
-    import { addNotification } from "@stores/notification";
+    import { onMount } from "svelte"; // Importar onMount para ejecutar código al montar el componente
+    import { whoAmIAPI, getBalanceAPI } from "$lib/api/modules/user"; // Importar las funciones de la API para obtener datos del usuario y saldo
+    import PanelHeader from '@components/PanelHeader.svelte'; // Importar el componente de encabezado del panel
+    import PanelSection from "@components/PanelSection.svelte"; // Importar el componente de sección del panel
+    import { addNotification } from "@stores/notification"; // Importar la función para agregar notificaciones
 
     // Importar el tipo de dato para la página
     export let data;

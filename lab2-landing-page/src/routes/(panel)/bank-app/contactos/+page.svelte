@@ -5,12 +5,12 @@ Incluye funciones para agregar, editar, eliminar, buscar contacto por alias y li
 
 <script>
     // Importar las dependencias necesarias
-    import { onMount } from "svelte"; 
-    import { getContactsAPI, addContactAPI, updateContactAPI, deleteContactAPI } from "$lib/api/modules/contacts";
-    import PanelHeader from "@components/PanelHeader.svelte";
-    import PanelSection from "@components/PanelSection.svelte";
-    import { writable } from "svelte/store";
-    import { notification, addNotification } from '@stores/notification';
+    import { onMount } from "svelte"; // Importar onMount para cargar datos al montar el componente
+    import { getContactsAPI, addContactAPI, updateContactAPI, deleteContactAPI } from "$lib/api/modules/contacts"; // Importar las funciones de la API para manejar contactos
+    import PanelHeader from "@components/PanelHeader.svelte"; // Importar el componente de encabezado del panel
+    import PanelSection from "@components/PanelSection.svelte"; // Importar el componente de sección del panel
+    import { writable } from "svelte/store"; // Importar writable de Svelte para manejar el estado reactivo
+    import { notification, addNotification } from '@stores/notification'; // Importar el store de notificaciones para mostrar mensajes al usuario
 
     // Variables para almacenar los datos del formulario y otros parámetros
     export let data;
@@ -225,7 +225,7 @@ Incluye funciones para agregar, editar, eliminar, buscar contacto por alias y li
 
 <style>
     @import "$lib/styles/app.css";
-
+    /* Estilos para el componente de contactos */
     .content-container {
         padding: var(--content-padding);
         background-color: var(--bg-white-color);

@@ -51,7 +51,7 @@
         show(
             SuccessfulPayment,
             { 
-                originAccount: formData.get('me_account'),
+                originAccount: form.me_account,
                 destinyAccount: formData.get('account_number'),
                 amount: new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(formData.get('amount')),
                 reference: formData.get(res.data.id),
@@ -125,6 +125,7 @@
                                     name="account_number"
                                     type="input"
                                     placeholder="00000000000000000"
+                                    regex="^\d+$"
                                     bind:value={form.account_number}
                                     isError={formValidation.account_number.status === false}
                                     onInput={(event) => formValidation.account_number.status = formValidation.account_number.check(event.target.value, true)}
@@ -137,6 +138,7 @@
                                 aria-label="switch account number field type"
                                 onclick={(event) => {
                                     form.account_number = null;
+                                    formValidation.account_number.status = true;
                                     useAccountNumberSelectField = !useAccountNumberSelectField;
                                 }}
                             ><i class="fa-solid fa-list"></i></button>
@@ -148,6 +150,7 @@
                             name="amount"
                             type="input"
                             placeholder="0.0"
+                            regex="^\d+$"
                             sideElement={{ type: "text", content: "USD"}}
                             bind:value={form.amount}
                             isError={formValidation.amount.status === false}

@@ -6,11 +6,12 @@
     export let name;
     export let type;
     export let value;
-    export let sideElement;
+    export let sideElement = null;
     export let isError;
     
     // Input props
     export let placeholder;
+    export let regex = null;
     export let onInput = () => {};
 
     // Select props
@@ -29,6 +30,8 @@
             {placeholder}
             {sideElement}
             {isError}
+            {regex}
+            {onInput}
             bind:value={value}
             oninput={onInput}
         />

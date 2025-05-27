@@ -4,7 +4,22 @@
     export let value;
     export let sideElement;
     export let isError;
-    export let oninput = () => {};
+    export let regex = null;
+    export let onInput = () => {};
+
+    const handleInput = (event) => {
+        if (regex != null) {
+            let _value = event.target.value;
+            
+            if (_value != null && _value != '')
+                if (!new RegExp(regex).test(_value))
+                    value = _value.replace(/[^0-9]/g, '');
+            
+            isError = false;
+        }
+
+        onInput(event);
+    };
 
     let focused = false;
 </script>
@@ -19,7 +34,7 @@
         <input type="text"
             id={name.replaceAll("_", "-")}
             {name}
-            {oninput}
+            oninput={handleInput}
             placeholder="{placeholder ? `E.j.: ${placeholder}` : ''}"
             onfocus={() => focused = true}
             onblur={() => focused = false}
@@ -31,7 +46,7 @@
     <input type="text"
         id={name.replaceAll("_", "-")}
         {name}
-        {oninput}
+        oninput={handleInput}
         placeholder="{placeholder ? `E.j.: ${placeholder}` : ''}"
         bind:value={value}
         class:error={isError}

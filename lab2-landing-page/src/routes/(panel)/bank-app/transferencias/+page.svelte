@@ -6,8 +6,10 @@
 	import PanelFormEntry from '@components/PanelFormEntry.svelte';
     import PanelHeader from '@components/PanelHeader.svelte';
 	import PanelSection from '@components/PanelSection.svelte';
+	import { modalStatus, hide, show } from '@stores/modal.js';
 	import { addNotification } from "@stores/notification.js";
 	import { onMount } from 'svelte';
+	import SuccessfulPayment from "./fragments/SuccessfulPayment.svelte";
 
     export let data;
     
@@ -45,6 +47,19 @@
 
         const res = await createMovementAPI(data);
         addNotification({ msg: res.message, type: res.success ?? 'succes' });
+
+        show(
+            SuccessfulPayment,
+            { 
+                originAccount: formData.get('me_account'),
+                destinyAccount: formData.get('account_number'),
+                amount: new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(formData.get('amount')),
+                reference: formData.get(res.data.id),
+                description: formData.get('description'),
+            },
+        );
+
+        clearFields();
         
         cancel();
     }

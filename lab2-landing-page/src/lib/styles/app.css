@@ -1,0 +1,175 @@
+@import './fonts.css';
+
+:root {
+
+    /* Por ajustar */
+    --accent-color: #49beb7;
+    --background-color: #FFFFFF;    
+    
+    /* Font styles */
+    --font-family-primary: 'Montserrat Alternates', sans-serif;
+    --font-family-secondary: 'Montserrat', sans-serif;
+    --font-size-base: 16px;
+    --font-size-small: .8rem;
+    --font-size-big: 1.5rem;
+    --font-size-h1: 2.7rem;
+    
+    /* Colors */
+    --primary-color: rgba(8, 95, 99, 1);
+    --secondary-color: rgba(73, 190, 183, 1);
+    --wrong-color: rgba(255, 0, 0, 1);
+    --well-color: rgba(0, 143, 57, 1);
+    --white-color: rgb(255, 255, 255, 1);
+    --black-color: rgba(0, 0, 0, 1);
+    --text-black-color: rgba(51, 51, 51, 1);
+    --text-color: rgba(90, 90, 90, 1);
+
+    /* Background Colors */
+    --bg-white-color: rgba(255, 255, 255, 1);
+    --bg-gray-color: rgba(244, 245, 247, 1);
+    --bg-gray-color-7: rgba(244, 245, 247, .7);
+    --bg-gray-color-5: rgba(244, 245, 247, .3);
+    --blocked-color: rgba(240, 240, 240, 1);
+    --blocked-color-8: rgba(240, 240, 240, .8);
+    --blocked-color-7: rgba(240, 240, 240, .7);
+
+    /* Border Colors */
+    --border-gray-color: rgba(138, 142, 145, .4);
+    --bordershadow-c: 0 0 #000;
+
+    /* Sizes */
+    --border-radius: 10px;
+    --header-height: 80px;
+    --footer-height: 44px;
+    --content-padding: 20px;
+    --section-padding: 25px;
+    --input-height: 43px;
+}
+
+* {
+    box-sizing: border-box !important;
+    margin: 0;
+    margin-block: 0;
+    min-width: 0;
+    padding: 0;
+    padding-inline: 0;
+    position: relative;
+    transition: all .2s ease;
+}
+
+html, body {
+    height: 100%;
+    line-height: 1.5;
+    width: 100%;
+}
+
+html, button, textarea, input, label {
+    color: var(--text-color);
+    font-family: var(--font-family-secondary);
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+}
+
+body {
+    background-color: var(--background-color);
+    min-height: 100dvh;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    color: var(--font-color-title);
+    font-family: var(--font-family-primary);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    margin: 0;
+    text-transform: uppercase;
+}
+
+img {
+    display: block;
+}
+
+.general-margin {
+    padding-left: 100px;
+    padding-right: 100px;
+    width: 100%;
+}
+
+.primary-btn,
+.secondary-btn {
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: .9rem;
+    font-weight: 600;
+    padding: 9px 25px;
+    text-transform: uppercase;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white-color);
+
+    &:hover {
+        background-color: var(--white-color);
+        color: var(--primary-color);
+    }
+}
+
+.secondary-btn {
+    background-color: var(--white-color);
+    border-color: var(--border-gray-color);
+    color: var(--text-color);
+
+    &:hover {
+        background-color: var(--blocked-color);
+    }
+}
+
+form {
+    & .double-box {
+        display: grid;
+        gap: var(--content-padding);
+        grid-template-columns: repeat(2, 1fr);
+        width: 100%;
+    }
+
+    & .box p.only-display,
+    & .box input {
+        align-content: center;
+        border: 2px solid var(--border-gray-color);
+        border-radius: var(--border-radius);
+        display: block;
+        height: var(--input-height);
+        outline: none;
+        padding: 10px;
+        width: 100%;
+        z-index: 1;
+    }
+
+    & .box p.only-display {
+        background-color: var(--blocked-color-8);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    
+    & div.complex-input-container > input {
+        border: none;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenedor {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: var(--background-color);
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}

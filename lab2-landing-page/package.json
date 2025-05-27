@@ -1,0 +1,35 @@
+{
+	"name": "lab2-landing-page",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev --host 0.0.0.0 --port 3333",
+		"build": "vite build",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint ."
+	},
+	"devDependencies": {
+		"@eslint/compat": "^1.2.5",
+		"@eslint/js": "^9.23.0",
+		"@sveltejs/adapter-auto": "^5.0.0",
+		"@sveltejs/kit": "^2.20.2",
+		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"eslint": "^9.23.0",
+		"eslint-config-prettier": "^10.0.1",
+		"eslint-plugin-svelte": "^3.3.3",
+		"globals": "^16.0.0",
+		"prettier": "^3.4.2",
+		"prettier-plugin-svelte": "^3.3.3",
+		"svelte": "^5.25.2",
+		"vite": "^6.0.0"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-free": "^6.7.2",
+		"axios": "^1.9.0",
+		"cookie": "^1.0.2",
+		"ttf2woff2": "^6.0.1"
+	}
+}
